@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Vivre mieux pour durer longtemps</title>
+<style>
+:root{--bg:#f5f2ec;--card:#ffffff;--ink:#21302a;--muted:#66706a;--line:#e1dbd0;--accent:#2f5d50;--accent-ink:#ffffff;--soft:#e7efea;--err:#a3402e;--t1:#c98b74;--t2:#dcb9a3;--t3:#a9c8b8;--t4:#5f9a83;--sand:#efe6d6}
+@media (prefers-color-scheme:dark){:root{--bg:#161b19;--card:#1f2623;--ink:#ecebe6;--muted:#a3aba6;--line:#33403a;--accent:#7fb3a2;--accent-ink:#10201a;--soft:#25352f;--err:#e58a76;--t1:#b9765f;--t2:#8f7262;--t3:#5f8574;--t4:#7fb3a2;--sand:#2b2a24}}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
+#bar{position:sticky;top:0;height:4px;background:var(--line);z-index:5}
+#bar>div{height:100%;width:0;background:var(--accent);transition:width .3s}
+main{max-width:640px;margin:0 auto;padding:28px 16px 40px}
+.kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.qnum{display:inline-block;background:var(--ink);color:var(--bg);border-radius:6px;padding:1px 7px;margin-right:8px;letter-spacing:0;font-weight:700}
+h1{font-size:24px;line-height:1.3;margin:0 0 12px;font-weight:650}
+h2{font-size:20px;line-height:1.35;margin:0 0 8px;font-weight:600}
+.sub{color:var(--muted);font-size:14px;margin:0 0 18px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.small{font-size:12.5px;color:var(--muted);margin-top:22px}
+.opts{display:flex;flex-direction:column;gap:8px;margin:14px 0}
+.grp{font-size:12.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;margin:20px 0 6px;padding-top:12px;border-top:1px solid var(--line)}
+.opts .grp:first-child,.pillset .grp:first-child{border-top:0;padding-top:0;margin-top:4px}
+.grpbadge{display:inline-block;background:var(--soft);color:var(--accent);font-weight:650;font-size:15px;padding:7px 14px;border-radius:999px;margin:0 0 12px}
+button.opt{display:flex;align-items:flex-start;gap:10px;text-align:left;width:100%;min-height:48px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+button.opt .box{flex:0 0 18px;height:18px;margin-top:2px;border:1.5px solid var(--muted);border-radius:50%}
+button.opt.multi .box{border-radius:4px}
+button.opt.sel{border-color:var(--accent);background:var(--soft)}
+button.opt.sel .box{border-color:var(--accent);background:var(--accent);box-shadow:inset 0 0 0 3px var(--soft)}
+button.opt.off,button.pill.off{opacity:.45}
+button.opt.rank .num{flex:0 0 24px;height:24px;border-radius:50%;border:1.5px solid var(--muted);font-size:13px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+button.opt.rank.sel .num{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.rankhint{font-size:13px;color:var(--muted);margin:10px 0 0}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+textarea{min-height:130px;resize:vertical}
+.other{margin:-2px 0 4px 28px}
+.scale{display:grid;gap:6px;margin:10px 0 4px}
+.scale button{padding:13px 0;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit;font-weight:600;cursor:pointer;min-width:0}
+.scale button.sel{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.anch{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);gap:12px}
+.anch span:last-child{text-align:right}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.slider{margin:8px 0 4px}
+.sl-ends{display:flex;justify-content:space-between;gap:16px;font-size:14.5px;line-height:1.35;margin-bottom:14px}
+.sl-ends span{flex:1}.sl-ends span:last-child{text-align:right}
+.sl-track{position:relative;display:flex;justify-content:space-between;align-items:center;padding:0 2px}
+.sl-track:before{content:"";position:absolute;left:14px;right:14px;top:50%;height:4px;margin-top:-2px;border-radius:2px;background:var(--line)}
+.sl-dot{position:relative;width:30px;height:30px;border-radius:50%;border:2px solid var(--accent);background:#fff;padding:0;cursor:pointer}
+.sl-dot.sel{background:var(--accent);box-shadow:0 0 0 5px var(--soft)}
+.recap{background:var(--soft);border-color:var(--soft);font-size:15px}
+.recap p{margin:0 0 8px}.recap ul{margin:0;padding-left:20px}
+.lbl{font-weight:550;margin-bottom:6px}
+.letter{background:var(--sand);border-radius:14px;padding:18px 18px 6px;margin:4px 0 18px;font-size:15.5px}
+.letter .sign{font-style:italic;text-align:right}
+.check{display:flex;gap:10px;align-items:flex-start;margin:12px 0;font-size:15px;cursor:pointer}
+.check input{margin-top:4px;width:18px;height:18px;flex:0 0 18px;accent-color:var(--accent)}
+.check.miss span{color:var(--err)}
+.field{margin:12px 0}
+.field label{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+.nav{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:24px}
+.btn{padding:13px 22px;border-radius:10px;border:0;background:var(--accent);color:var(--accent-ink);font:inherit;font-weight:600;cursor:pointer}
+.btn.ghost{background:var(--card);color:var(--accent);border:1px solid var(--accent)}
+.btn:disabled{opacity:.5;cursor:default}
+.link{background:none;border:0;color:var(--muted);font:inherit;cursor:pointer;padding:10px 4px;text-decoration:none}
+.later{display:block;margin:26px auto 0;font-size:14px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.err{color:var(--err);font-size:14px;font-weight:600;margin:4px 0 0;min-height:1px}
+.miss-outline{outline:2px solid var(--err);outline-offset:4px;border-radius:12px}
+/* pastilles */
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+button.pill{min-height:42px;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-size:14.5px;line-height:1.25;text-align:left;cursor:pointer}
+button.pill.sel{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+button.pill.none{margin-top:10px}
+/* cartes une par une */
+.cardtop{display:flex;align-items:center;justify-content:space-between;margin:6px 0 10px}
+.dots{display:flex;gap:6px;flex-wrap:wrap}
+.dots button{width:10px;height:10px;padding:0;border-radius:50%;border:0;background:var(--line);cursor:pointer}
+.dots button.ok{background:var(--t3)}
+.dots button.cur{background:var(--accent);transform:scale(1.25)}
+.count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 18px 18px;box-shadow:0 6px 24px rgba(33,48,42,.06)}
+.card.anim{animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.cardlbl{font-size:19px;line-height:1.35;font-weight:620;margin:0 0 18px}
+.cardq{font-size:16px;line-height:1.4;font-weight:600;margin:22px 0 10px;padding-top:16px;border-top:1px solid var(--line)}
+.tones{display:flex;flex-direction:column;gap:8px}
+.tones button{display:flex;align-items:center;gap:12px;width:100%;min-height:50px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.tones button .sw{flex:0 0 14px;height:14px;border-radius:50%}
+.tones button.sel{border-width:2px;border-color:var(--accent);background:var(--soft);font-weight:600}
+.tones .emo{font-size:22px;line-height:1}
+.cardnav{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+/* pauses */
+.pause{text-align:center;padding-top:24px}
+.pause svg{width:100%;max-width:300px;height:auto;margin:0 auto 22px;display:block}
+.pause .step{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.pause h1{margin-bottom:10px}
+.pause .nav{justify-content:center}
+/* dictée */
+.dict{display:flex;align-items:center;gap:10px;margin:10px 0 0;flex-wrap:wrap}
+.mic{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1px solid var(--accent);background:var(--card);color:var(--accent);font:inherit;font-size:14.5px;cursor:pointer}
+.mic.on{background:var(--accent);color:var(--accent-ink)}
+.mic.on .dotrec{background:var(--accent-ink);animation:pulse 1s infinite}
+.dotrec{width:9px;height:9px;border-radius:50%;background:var(--err)}
+@keyframes pulse{50%{opacity:.3}}
+.tip{font-size:13px;color:var(--muted)}
+/* fin, partage */
+.share{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:22px}
+.share textarea{min-height:120px;font-size:15px}
+.sharebtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.sharebtns a,.sharebtns button{flex:1 1 140px;text-align:center;text-decoration:none;padding:12px 14px;border-radius:10px;font:inherit;font-weight:600;cursor:pointer;border:0}
+.wa{background:#1f8f55;color:#fff}
+.mail{background:var(--accent);color:var(--accent-ink)}
+.copy{background:var(--soft);color:var(--ink)}
+.legal h2{font-size:17px;margin-top:20px}
+.legal p,.legal li{font-size:15px}
+@media (max-width:380px){main{padding:22px 14px 32px}h2{font-size:19px}.cardlbl{font-size:18px}}
+strong{font-weight:650}
+</style>
+</head>
+<body>
+<div id="bar"><div></div></div>
+<main id="app"></main>
+<script>
+/* =========================================================
+   CONFIGURATION
+   API_URL : l'URL de l'application web Apps Script (se termine par /exec).
+   Laisse vide pour tester la page sans enregistrer.
+   ========================================================= */
+var API_URL = "https://script.google.com/macros/s/AKfycbzDd-Y-TvL0oAu91itQrh2iYTefeixApY6CaDYxaBIHJIRVo3VGXoCh0uHgpI4I2FrkHA/exec";
+var CONTACT = "estelle.e.marie@gmail.com";
+var RESPONSABLE = "Estelle Piche";
+
+// Version Apps Script : la page est servie par le script, qui fournit window.__GAS (paramètres et adresse).
+var GAS = window.__GAS || null;
+function gasRun(){ return GAS && window.google && google.script && google.script.run ? google.script.run : null; }
+var PARAMS = GAS ? (GAS.params || {}) : (function(){ var p = {}; try { new URLSearchParams(location.search).forEach(function(v, k){ p[k] = v; }); } catch (e) {} return p; })();
+var TEST = PARAMS.test === "1";   // ?test=1 : affiche le numéro de chaque question
+var STORE = "vivre_mieux_etat_v8";
+
+/* ---------- textes ---------- */
+function L(fr, es, en){ return {fr:fr, es:es, en:en}; }
+var lang = "fr";
+// Accords selon le genre : {masculin|féminin}. Sans réponse : forme double (seul·e, solo/a).
+function gx(s){
+  return s.replace(/\{([^|{}]*)\|([^|{}]*)\}/g, function(_, m, f){
+    if (S.q01_genre === "femme") return f;
+    if (S.q01_genre === "homme") return m;
+    return m + (lang === "es" ? "/" : "·") + f;
+  });
+}
+function tx(o){ var s = typeof o === "string" ? o : (o[lang] != null ? o[lang] : o.fr); return gx(s); }
+
+var UI = {
+  next: L("Continuer","Continuar","Continue"),
+  back: L("Retour","Atrás","Back"),
+  start: L("Commencer","Empezar","Start"),
+  submit: L("Envoyer mes réponses","Enviar mis respuestas","Submit my answers"),
+  sending: L("Envoi en cours…","Enviando…","Sending…"),
+  sendErr: L("Tes réponses n'ont pas pu être envoyées. Vérifie ta connexion et réessaie.","No se han podido enviar tus respuestas. Comprueba tu conexión e inténtalo de nuevo.","Your answers could not be sent. Please check your connection and try again."),
+  req: L("Merci de répondre pour continuer.","Por favor, responde para continuar.","Please answer to continue."),
+  reqCards: L("Il reste une réponse à donner : la voici.","Falta una respuesta: aquí está.","One answer is still missing: here it is."),
+  reqEmail: L("Merci d'indiquer une adresse e-mail valide.","Indica una dirección de correo electrónico válida.","Please enter a valid email address."),
+  reqConsent: L("Merci de cocher la case pour continuer.","Marca la casilla para continuar.","Please tick the box to continue."),
+  multi: L("Plusieurs réponses possibles","Varias respuestas posibles","Several answers possible"),
+  tapAll: L("Touche toutes les réponses qui s'appliquent.","Toca todas las respuestas que correspondan.","Tap all that apply."),
+  optional: L("Ta réponse (facultatif)","Tu respuesta (opcional)","Your answer (optional)"),
+  specify: L("Précise","Especifica","Please specify"),
+  email: L("Ton e-mail","Tu correo electrónico","Your email"),
+  phone: L("Ton téléphone (facultatif)","Tu teléfono (opcional)","Your phone (optional)"),
+  prevItem: L("Précédent","Anterior","Previous"),
+  nextItem: L("Suivant","Siguiente","Next"),
+  later: L("Reprendre plus tard","Continuar más tarde","Finish later"),
+  data: L("Tes données personnelles","Tus datos personales","Your personal data"),
+  none: L("Aucun","Ninguno","None"),
+  dictate: L("Dicter ma réponse","Dictar mi respuesta","Dictate my answer"),
+  stopDictate: L("Arrêter la dictée","Detener el dictado","Stop dictating"),
+  dictTip: L("Tu peux écrire ou dicter ta réponse.","Puedes escribir o dictar tu respuesta.","You can type or dictate your answer."),
+  dictTipKb: L("Astuce : tu peux aussi dicter avec le micro de ton clavier.","Consejo: también puedes dictar con el micrófono del teclado.","Tip: you can also dictate using your keyboard's microphone."),
+  tapRank: L("Tes choix remontent en haut, dans l'ordre.","Tus elecciones suben arriba, en orden.","Your choices move to the top, in order.")
+};
+
+var K = {
+  b1: L("Tes préoccupations","Tus preocupaciones","Your concerns"),
+  b2: L("Ton accompagnement","Tu acompañamiento","Your support"),
+  b3: L("Ton bien-être","Tu bienestar","Your well-being"),
+  b4: L("Ce que tu fais","Lo que haces","What you do"),
+  b5: L("Tes attentes","Tus expectativas","Your expectations"),
+  b6: L("L'écoute","La escucha","Being heard"),
+  b7: L("Ton profil","Tu perfil","About you")
+};
+var BLOCS = ["b1","b2","b3","b4","b5","b6","b7"];
+// Pauses : un écran qui ne demande rien + ce que ton corps a fait pendant ce temps (calculé sur le temps actif)
+var PAUSES = {
+  b3: {t:L("Cet écran ne te demande rien.","Esta pantalla no te pide nada.","This screen asks nothing of you."),
+       s:L("Depuis que tu as commencé, ton cœur a battu environ {hb} fois. Sans ordre du jour, sans relance.","Desde que empezaste, tu corazón ha latido unas {hb} veces. Sin orden del día, sin recordatorios.","Since you started, your heart has beaten about {hb} times. No agenda, no reminders.")},
+  b4: {t:L("Personne ne t'attend sur cet écran. Pas même moi.","Nadie te espera en esta pantalla. Ni siquiera yo.","Nobody is waiting for you on this screen. Not even me."),
+       s:L("Pendant ce temps, ton corps a renouvelé environ {cells} de cellules. Toi, tu as répondu à {q} questions. Chacun son rythme.","Mientras tanto, tu cuerpo ha renovado unos {cells} de células. Tú has respondido a {q} preguntas. Cada uno a su ritmo.","Meanwhile, your body has renewed about {cells} cells. You've answered {q} questions. Everyone has their own pace.")},
+  def: {t:L("Avant la suite, on souffle un peu.","Antes de seguir, respiramos un poco.","Before we go on, let's take a breath."),
+       s:L("Essaie une fois : inspire sur 4 temps, expire sur 6. Une expiration plus longue que l'inspiration aide le cœur à ralentir.","Pruébalo una vez: inspira en 4 tiempos, espira en 6. Una espiración más larga que la inspiración ayuda al corazón a ir más despacio.","Try it once: breathe in for 4 counts, out for 6. A longer out-breath than in-breath helps your heart slow down.")},
+  b5: {t:L("Rien à remplir. Quelques secondes, offertes.","Nada que rellenar. Unos segundos, de regalo.","Nothing to fill in. A few seconds, on the house."),
+       s:L("Devant un écran, on cligne nettement moins des yeux. Regarde au loin, juste un instant. On t'attend.","Frente a una pantalla parpadeamos bastante menos. Mira a lo lejos, solo un instante. Te esperamos.","In front of a screen, we blink much less. Look into the distance, just for a moment. We'll wait.")},
+  b7: {t:L("Le dernier écran qui ne te demande rien.","La última pantalla que no te pide nada.","The last screen that asks nothing of you."),
+       s:L("Tes cheveux ont poussé d'environ {hair} millièmes de millimètre depuis le début, soit une fraction de leur épaisseur. On ne te retient plus très longtemps.","Tu pelo ha crecido unas {hair} milésimas de milímetro desde el principio, una fracción de su grosor. Ya no te entretenemos mucho más.","Your hair has grown about {hair} thousandths of a millimetre since you started, a fraction of its thickness. We won't keep you much longer.")}
+};
+var LAST_TICK = Date.now();
+function tick(){ var n = Date.now(); META.actif_ms = (META.actif_ms || 0) + Math.min(n - LAST_TICK, 300000); LAST_TICK = n; }
+function activeMin(){ return Math.max(1, ((META.actif_ms || 0) + Math.min(Date.now() - LAST_TICK, 300000)) / 60000); }
+function nb(x){ return Math.round(x).toLocaleString(lang === "en" ? "en-GB" : (lang === "es" ? "es-ES" : "fr-FR")); }
+function cellsText(min){
+  var n = 3.8e6 * 60 * min; // ~330 milliards de cellules renouvelées par jour
+  if (n >= 1e9) {
+    var b = Math.round(n / 1e8) / 10;
+    if (lang === "es") return nb(b * 1000) + " millones";
+    if (lang === "en") return String(b).replace(/\.0$/, "") + " billion";
+    return String(b).replace(".", ",").replace(/,0$/, "") + (b >= 2 ? " milliards" : " milliard");
+  }
+  return nb(Math.round(n / 1e7) * 10) + (lang === "en" ? " million" : (lang === "es" ? " millones" : " millions"));
+}
+function pauseBody(b){
+  var m = activeMin();
+  var q = hist.filter(function(k){ return /^q\d/.test(k); }).length;
+  return tx(PAUSES[b].s)
+    .replace("{hb}", nb(Math.round(m * 70 / 10) * 10))
+    .replace("{br}", nb(Math.round(m * 15 / 5) * 5))
+    .replace("{m}", nb(m))
+    .replace("{cells}", cellsText(m))
+    .replace("{q}", String(q))
+    .replace("{hair}", nb(Math.max(1, m * 0.33 / 1440 * 1000)))
+    .replace(/(^|\D)1 millièmes/, "$11 millième").replace(/(^|\D)1 milésimas/, "$11 milésima").replace(/(^|\D)1 thousandths/, "$11 thousandth");
+}
+
+/* ---------- listes communes ---------- */
+var SUJETS = [
+  {c:"rythme_travail", l:L("Mon rythme de travail et la pression que je ressens","Mi ritmo de trabajo y la presión que siento","My work pace and the pressure I feel")},
+  {c:"relations_travail", l:L("Mes relations au travail (associés, équipe, collègues, hiérarchie)","Mis relaciones en el trabajo (socios, equipo, compañeros, superiores)","My relationships at work (partners, team, colleagues, managers)")},
+  {c:"ressources_financieres", l:L("Ma situation financière","Mi situación económica","My financial situation")},
+  {c:"parcours_pro", l:L("La suite de mon parcours professionnel","El futuro de mi trayectoria profesional","The next steps in my career")},
+  {c:"equilibre_vie", l:L("Mon équilibre entre vie professionnelle et vie personnelle","Mi equilibrio entre vida profesional y personal","My work-life balance")},
+  {c:"forme_sante", l:L("Ma forme, mon énergie, ma santé","Mi forma física, mi energía, mi salud","My fitness, my energy, my health")},
+  {c:"famille_proches", l:L("Ma famille, mes proches","Mi familia, mis seres queridos","My family, my loved ones")},
+  {c:"sens", l:L("Le sens de ce que je fais, mon projet de vie","El sentido de lo que hago, mi proyecto de vida","The meaning of what I do, my life project")}
+];
+
+var ACTION_COLS = [
+  {c:"pro", l:L("Oui, avec un professionnel","Sí, con un profesional","Yes, with a professional")},
+  {c:"appli", l:L("Oui, avec une appli ou une montre","Sí, con una app o un reloj","Yes, with an app or a watch")},
+  {c:"ia", l:L("Oui, avec mon IA","Sí, con mi IA","Yes, with my AI")},
+  {c:"seul", l:L("Oui, seul{|e}","Sí, sol{o|a}","Yes, on my own")},
+  {c:"faire_plus", l:L("Oui, mais j'aimerais faire plus","Sí, pero me gustaría hacer más","Yes, but I'd like to do more")},
+  {c:"non_aimerais", l:L("Non, mais j'aimerais","No, pero me gustaría","No, but I'd like to"), x:true},
+  {c:"non_necessaire", l:L("Non, pas besoin","No, no hace falta","No, not needed"), x:true}];
+var DOMAINES = [
+  {c:"sommeil", a:L("Ton sommeil (durée et qualité)","Tu sueño (duración y calidad)","Your sleep (duration and quality)"), b:L("Améliorer ton sommeil","Mejorar tu sueño","Improve your sleep")},
+  {c:"energie_forme", a:L("Ton énergie et ta forme physique","Tu energía y tu forma física","Your energy and physical fitness"), b:L("Améliorer ton énergie et ta forme physique","Mejorar tu energía y tu forma física","Improve your energy and physical fitness")},
+  {c:"alimentation", a:L("Ta nutrition","Tu nutrición","Your nutrition"), b:L("Améliorer ta nutrition","Mejorar tu nutrición","Improve your nutrition")},
+  {c:"pression", a:L("Ton niveau de stress","Tu nivel de estrés","Your stress level"), b:L("Réduire ton niveau de stress","Reducir tu nivel de estrés","Reduce your stress level"),
+    lo:L("Très stressé{|e}","Muy estresad{o|a}","Very stressed"), hi:L("Pas du tout stressé{|e}","Nada estresad{o|a}","Not stressed at all")},
+  {c:"substances", a:L("Ton rapport à l'alcool, au tabac et aux excitants (café, sucre…)","Tu relación con el alcohol, el tabaco y los estimulantes (café, azúcar…)","Your relationship with alcohol, tobacco and stimulants (coffee, sugar…)"), b:L("Réduire ta consommation d'alcool, de tabac ou d'excitants","Reducir tu consumo de alcohol, tabaco o estimulantes","Cut down on alcohol, tobacco or stimulants")},
+  {c:"ecrans", a:L("Ta capacité à déconnecter des écrans","Tu capacidad para desconectar de las pantallas","Your ability to switch off from screens"), b:L("Déconnecter davantage des écrans","Desconectar más de las pantallas","Switch off from screens more")},
+  {c:"relations", a:L("La qualité de tes relations (couple, famille, amis)","La calidad de tus relaciones (pareja, familia, amigos)","The quality of your relationships (partner, family, friends)"), b:L("Améliorer la qualité de tes relations","Mejorar la calidad de tus relaciones","Improve the quality of your relationships")},
+  {c:"humeur", a:L("Ton humeur, ton équilibre émotionnel","Tu estado de ánimo, tu equilibrio emocional","Your mood, your emotional balance"), b:L("Améliorer ton humeur, ton équilibre émotionnel","Mejorar tu estado de ánimo, tu equilibrio emocional","Improve your mood, your emotional balance")},
+  {c:"sens", a:L("Le sens que tu trouves dans ce que tu fais","El sentido que encuentras en lo que haces","The meaning you find in what you do"), b:L("Donner plus de sens à ce que tu fais","Dar más sentido a lo que haces","Find more meaning in what you do")}
+];
+
+var IA = L("Une IA, comme conseiller (ChatGPT, Claude, Gemini…)","Una IA, como consejera (ChatGPT, Claude, Gemini…)","An AI, as an adviser (ChatGPT, Claude, Gemini…)");
+var ACC = [
+  {id:"activite", g:L("Pour ton activité","Para tu actividad profesional","For your work"), items:[
+    {c:"coach_pro", l:L("Un coach professionnel ou de dirigeant","Un coach profesional o de directivos","A professional or executive coach")},
+    {c:"mentor", l:L("Un mentor ou un advisor","Un mentor o asesor","A mentor or advisor")},
+    {c:"pairs", l:L("Un groupe de pairs (club, cercle de dirigeants)","Un grupo de pares (club, círculo de directivos)","A peer group (club, leaders' circle)")},
+    {c:"expert_juridique", l:L("Un avocat, un fiscaliste ou un autre expert professionnel","Un abogado, un asesor fiscal u otro experto profesional","A lawyer, tax adviser or other professional expert")},
+    {c:"recruteur", l:L("Un chasseur de têtes ou un cabinet de transition de carrière","Un cazatalentos o una consultora de transición profesional","A headhunter or career transition firm")},
+    {c:"formation", l:L("Une formation (leadership, management)","Una formación (liderazgo, gestión de equipos)","Training (leadership, management)")},
+    {c:"app_coaching", l:L("Une application de coaching","Una aplicación de coaching","A coaching app")},
+    {c:"ia_pro", l:IA}]},
+  {id:"corps", g:L("Pour ton corps et ta santé","Para tu cuerpo y tu salud","For your body and health"), items:[
+    {c:"medecin", l:L("Un médecin (généraliste ou spécialiste)","Un médico (de cabecera o especialista)","A doctor (GP or specialist)")},
+    {c:"bilan_preventif", l:L("Un bilan de santé préventif régulier (check-up)","Un chequeo médico preventivo regular","A regular preventive health check-up")},
+    {c:"coach_sportif", l:L("Un coach sportif","Un entrenador personal","A personal trainer")},
+    {c:"salle_solo", l:L("Une salle de sport, en autonomie","Un gimnasio, por mi cuenta","A gym, on my own")},
+    {c:"cours_sport", l:L("Du yoga ou du Pilates","Yoga o pilates","Yoga or Pilates")},
+    {c:"cours_hebdo", l:L("Un cours de sport récurrent","Una clase de deporte regular","A regular sports class")},
+    {c:"specialiste_sommeil", l:L("Un médecin ou un spécialiste du sommeil","Un médico o especialista del sueño","A sleep doctor or specialist")},
+    {c:"endurance", l:L("Un sport d'endurance (course, vélo, natation, trail…)","Un deporte de resistencia (correr, ciclismo, natación, trail…)","An endurance sport (running, cycling, swimming, trail…)")},
+    {c:"marche", l:L("Une marche quotidienne","Un paseo diario","A daily walk")},
+    {c:"nutritionniste", l:L("Un nutritionniste ou un diététicien","Un nutricionista o dietista","A nutritionist or dietitian")},
+    {c:"naturopathe", l:L("Un naturopathe","Un naturópata","A naturopath")},
+    {c:"acupuncture", l:L("Un acupuncteur","Un acupuntor","An acupuncturist")},
+    {c:"complements_alim", l:L("Des compléments alimentaires","Suplementos alimenticios","Food supplements")},
+    {c:"bains_froids", l:L("Des bains froids","Baños de agua fría","Cold-water immersion")},
+    {c:"cryotherapie", l:L("De la cryothérapie","Crioterapia","Cryotherapy")},
+    {c:"kine", l:L("Un kinésithérapeute","Un fisioterapeuta","A physiotherapist")},
+    {c:"osteo", l:L("Un ostéopathe","Un osteópata","An osteopath")},
+    {c:"app_sport", l:L("Une application de sport","Una aplicación deportiva","A fitness app")},
+    {c:"objet_sport", l:L("Un objet connecté (montre, bague…)","Un dispositivo conectado (reloj, anillo…)","A connected device (watch, ring…)")},
+    {c:"ia_sport", l:IA},
+    {c:"objet_nutrition", l:L("Un objet connecté (capteur de glucose, balance…)","Un dispositivo conectado (sensor de glucosa, báscula…)","A connected device (glucose sensor, smart scale…)")},
+    {c:"ia_nutrition", l:IA},
+    {c:"objet_sommeil", l:L("Un objet connecté (montre, bague, bandeau…)","Un dispositivo conectado (reloj, anillo, banda…)","A connected device (watch, ring, headband…)")},
+    {c:"ia_sommeil", l:IA},
+    {c:"app_longevite", l:L("Une application de longévité","Una aplicación de longevidad","A longevity app")},
+    {c:"objet_sante", l:L("Un objet connecté (tensiomètre, ECG…)","Un dispositivo conectado (tensiómetro, ECG…)","A connected device (blood pressure monitor, ECG…)")},
+    {c:"ia_sante", l:IA},
+    {c:"app_nutrition", l:L("Une application de nutrition ou de régime","Una aplicación de nutrición o de dieta","A nutrition or diet app")},
+    {c:"app_sommeil", l:L("Une application de sommeil","Una aplicación de sueño","A sleep app")}]},
+  {id:"esprit", g:L("Pour ton esprit et ton équilibre","Para tu mente y tu equilibrio","For your mind and balance"), items:[
+    {c:"psy", l:L("Un psychologue ou un psychothérapeute","Un psicólogo o psicoterapeuta","A psychologist or psychotherapist")},
+    {c:"therapeute_famille", l:L("Un thérapeute de couple ou familial","Un terapeuta de pareja o familiar","A couples or family therapist")},
+    {c:"coach_vie", l:L("Un coach de vie","Un coach de vida","A life coach")},
+    {c:"meditation", l:L("Des séances de méditation ou de sophrologie","Sesiones de meditación o sofrología","Meditation or sophrology sessions")},
+    {c:"breathwork", l:L("Des séances de breathwork (respiration)","Sesiones de breathwork (respiración)","Breathwork sessions")},
+    {c:"hypnose", l:L("Des séances d'hypnose","Sesiones de hipnosis","Hypnosis sessions")},
+    {c:"bains_sonores", l:L("Des bains sonores","Baños de sonido","Sound baths")},
+    {c:"retraite", l:L("Une retraite bien-être","Un retiro de bienestar","A wellness retreat")},
+    {c:"soins", l:L("Un praticien de massage ou de soins corporels","Un terapeuta de masaje o terapia corporal","A massage or bodywork practitioner")},
+    {c:"energeticien", l:L("Un praticien en soins énergétiques (shiatsu, reiki, magnétisme, kinésiologie…)","Un terapeuta energético (shiatsu, reiki, magnetismo, kinesiología…)","An energy healing practitioner (shiatsu, reiki, magnetism, kinesiology…)")},
+    {c:"medium", l:L("Un médium","Un médium","A medium")},
+    {c:"spirituel", l:L("Un accompagnement spirituel (guide, communauté, retraite spirituelle…)","Un acompañamiento espiritual (guía, comunidad, retiro espiritual…)","Spiritual guidance (guide, community, spiritual retreat…)")},
+    {c:"app_meditation", l:L("Une application de méditation","Una aplicación de meditación","A meditation app")},
+    {c:"ia_esprit", l:IA}]}
+];
+var AUTRE_PRO = {c:"autre_pro", l:L("Autre (précise)","Otro (especifica)","Other (please specify)"), o:true, f:true};
+// sujets approfondis (Q4, Q6, Q7) et accompagnements proposés en Q5, + IA et autre_pro pour tous
+var PAR_SUJET = {
+  rythme_travail: ["coach_pro","mentor","pairs","coach_sportif","soins","meditation","breathwork","app_meditation"],
+  relations_travail: ["coach_pro","mentor","pairs","expert_juridique","psy","app_coaching"],
+  equilibre_vie: ["coach_pro","coach_vie","psy","meditation","breathwork","hypnose","bains_sonores","app_meditation"],
+  forme_sante: ["medecin","bilan_preventif","coach_sportif","salle_solo","cours_sport","cours_hebdo","endurance","marche","specialiste_sommeil","nutritionniste","naturopathe","complements_alim","acupuncture","bains_froids","cryotherapie","kine","osteo","soins","energeticien","app_sport","objet_sport","ia_sport","app_nutrition","objet_nutrition","ia_nutrition","app_sommeil","objet_sommeil","ia_sommeil","app_longevite","objet_sante","ia_sante"],
+  sens: ["coach_pro","mentor","psy","coach_vie","spirituel","app_meditation"]
+}; // non approfondis : ressources_financieres, parcours_pro, famille_proches
+var IA_SUJET = {rythme_travail:"ia_pro", relations_travail:"ia_pro", equilibre_vie:"ia_esprit", forme_sante:null, sens:"ia_esprit"};
+var Q6B_SEULEMENT = ["medecin"]; // jamais en Q34 ni Q36
+// Q5 pour « ma forme, mon énergie, ma santé » : liste courte (le détail vient en Q35)
+var Q5_FORME = ["medecin","coach_sportif","nutritionniste","app_objet","ia_corps"];
+var ACC_FLAT = [
+  {c:"app_objet", l:L("Une application ou un objet connecté","Una aplicación o un dispositivo conectado","An app or a connected device")},
+  {c:"ia_corps", l:IA}];
+ACC.forEach(function(g){ g.items.forEach(function(i){ ACC_FLAT.push(i); }); });
+var AUTRE = function(){ return {c:"autre", l:L("Autre (précise)","Otro (especifica)","Other (please specify)"), o:true, f:true}; };
+
+var ENTOURAGE = [
+  {c:"tres_bien", l:L("Très bien entouré{|e} et outillé{|e}","Muy bien rodead{o|a} y con recursos","Very well supported and equipped")},
+  {c:"plutot_bien", l:L("Plutôt bien entouré{|e} et outillé{|e}","Bastante bien rodead{o|a} y con recursos","Fairly well supported and equipped")},
+  {c:"un_peu_seul", l:L("Un peu seul{|e}","Un poco sol{o|a}","A little alone")},
+  {c:"tres_seul", l:L("Très seul{|e}","Muy sol{o|a}","Very alone")}
+];
+
+function budget(last){
+  return [
+    {c:"rien", l:L("Rien","Nada","Nothing")},
+    {c:"moins_500", l:L("Moins de 500 €","Menos de 500 €","Less than €500")},
+    {c:"500_1000", l:L("Entre 500 et 1 000 €","Entre 500 y 1.000 €","Between €500 and €1,000")},
+    {c:"1000_2000", l:L("Entre 1 000 et 2 000 €","Entre 1.000 y 2.000 €","Between €1,000 and €2,000")},
+    {c:"2000_3000", l:L("Entre 2 000 et 3 000 €","Entre 2.000 y 3.000 €","Between €2,000 and €3,000")},
+    {c:"3000_4000", l:L("Entre 3 000 et 4 000 €","Entre 3.000 y 4.000 €","Between €3,000 and €4,000")},
+    {c:"4000_6000", l:L("Entre 4 000 et 6 000 €","Entre 4.000 y 6.000 €","Between €4,000 and €6,000")},
+    {c:"6000_10000", l:L("Entre 6 000 et 10 000 €","Entre 6.000 y 10.000 €","Between €6,000 and €10,000")},
+    {c:"plus_10000", l:L("Plus de 10 000 €","Más de 10.000 €","More than €10,000")},
+    last
+  ];
+}
+
+// échelle d'accord : 1 à 4, avec une couleur par niveau
+var AGREE = [L("Pas du tout d'accord","Nada de acuerdo","Strongly disagree"), L("Plutôt pas d'accord","Más bien en desacuerdo","Somewhat disagree"), L("Plutôt d'accord","Más bien de acuerdo","Somewhat agree"), L("Tout à fait d'accord","Totalmente de acuerdo","Strongly agree")];
+var AGREE_TONES = ["var(--t1)","var(--t2)","var(--t3)","var(--t4)"];
+// ressenti face à un mot : codes enregistrés positif / neutre / negatif
+var FEEL = [L("Positif","Positivo","Positive"), L("Neutre","Neutro","Neutral"), L("Négatif","Negativo","Negative")];
+var FEEL_EMO = ["🙂","😐","🙁"];
+
+/* ---------- état ---------- */
+var S = {};          // réponses
+var ORDER = {};      // ordres aléatoires mémorisés
+var CARD = {};       // carte affichée, par question en cartes
+var hist = [];       // écrans vus
+var cur = "q00";
+var done = false;
+var VIEW = null;     // null, "donnees", "reprise", "reprise_ok", "retour", "chargement", "lien_invalide"
+function uuid(){
+  if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+  return "r" + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+}
+var META = {id_reponse: uuid(), debut: new Date().toISOString(), canal: (PARAMS.canal || "").slice(0, 60), langue_lien: (PARAMS.langue || "").slice(0, 5)};
+
+function shuffled(key, list){
+  if (!ORDER[key]) {
+    var codes = list.map(function(o){ return o.c; });
+    for (var i = codes.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = codes[i]; codes[i] = codes[j]; codes[j] = t; }
+    ORDER[key] = codes;
+  }
+  var byC = {}; list.forEach(function(o){ byC[o.c] = o; });
+  return ORDER[key].filter(function(c){ return byC[c]; }).map(function(c){ return byC[c]; })
+    .concat(list.filter(function(o){ return ORDER[key].indexOf(o.c) < 0; }));
+}
+// options aléatoires sauf celles marquées top (en tête) ou f (fixes, en fin)
+function rnd(key, opts){
+  var top = opts.filter(function(o){ return o.top; });
+  var fix = opts.filter(function(o){ return o.f && !o.top; });
+  var mid = opts.filter(function(o){ return !o.f && !o.top; });
+  return top.concat(shuffled(key, mid)).concat(fix);
+}
+// garde les rendez-vous du matin et du soir côte à côte
+function pairRdv(list){
+  var soir = list.filter(function(o){ return o.c === "rdv_soir"; })[0];
+  if (!soir) return list;
+  var out = list.filter(function(o){ return o.c !== "rdv_soir"; });
+  var i = out.map(function(o){ return o.c; }).indexOf("rdv_matin");
+  out.splice(i + 1, 0, soir); return out;
+}
+// sous-catégories pour « ta forme, ton énergie, ta santé » (Q5) et l'écran « corps et santé » (Q34, Q36)
+var CATS = [
+  {id:"sport", h:L("Sport","Deporte","Exercise"), c:["coach_sportif","salle_solo","cours_sport","cours_hebdo","endurance","marche","app_sport","objet_sport","ia_sport"]},
+  {id:"nutrition", h:L("Nutrition","Nutrición","Nutrition"), c:["nutritionniste","naturopathe","complements_alim","app_nutrition","objet_nutrition","ia_nutrition"]},
+  {id:"sommeil", h:L("Sommeil","Sueño","Sleep"), c:["specialiste_sommeil","app_sommeil","objet_sommeil","ia_sommeil"]},
+  {id:"sante", h:L("Santé et soins","Salud y cuidados","Health and care"), c:["medecin","bilan_preventif","app_longevite","kine","osteo","acupuncture","bains_froids","cryotherapie","soins","energeticien","objet_sante","ia_sante"]}];
+// objets connectés et IA en fin de sous-catégorie ; « Autre » par sous-catégorie si demandé (Q5)
+function grouped(items, key, withOther){
+  var out = [], placed = {};
+  CATS.forEach(function(cat, ci){
+    var inCat = items.filter(function(i){ return cat.c.indexOf(i.c) >= 0; });
+    if (!inCat.length) return;
+    out.push({h:cat.h});
+    var tools = inCat.filter(function(i){ return /^(objet|ia)_/.test(i.c); });
+    shuffled(key + "_" + ci, inCat.filter(function(i){ return tools.indexOf(i) < 0; })).concat(tools).forEach(function(i){ out.push(i); placed[i.c] = true; });
+    if (withOther) out.push({c:"autre_" + cat.id, l:L("Autre (précise)","Otro (especifica)","Other (please specify)"), o:true});
+  });
+  return out.concat(items.filter(function(i){ return !placed[i.c]; }));
+}
+function accItem(c){ for (var i = 0; i < ACC_FLAT.length; i++) if (ACC_FLAT[i].c === c) return ACC_FLAT[i]; }
+function arr(v){ return Array.isArray(v) ? v : []; }
+function stepKeyIn(list, k){ for (var i = 0; i < list.length; i++) if (list[i].key === k) return list[i]; }
+function sujetLabel(c){ for (var i = 0; i < SUJETS.length; i++) if (SUJETS[i].c === c) return SUJETS[i].l; }
+function labelOf(opts, c){ for (var i = 0; i < opts.length; i++) if (opts[i].c === c) return opts[i]; }
+// libellé de sujet avec guillemets, dans chaque langue
+function q(sl){ return {fr:"« " + sl.fr + " »", es:"«" + sl.es + "»", en:"“" + sl.en + "”"}; }
+function T(fr, es, en, sl){ var x = q(sl); return L(fr.replace("@", x.fr), es.replace("@", x.es), en.replace("@", x.en)); }
+
+/* ---------- parcours ---------- */
+function buildSteps(){
+  var s = [];
+  function add(o){ s.push(o); return o; }
+  function auto(v, value){ s.push({type:"auto", v:v, value:value}); }
+  function rankOrAuto(key, k, v, opts, chosen){
+    var sel = arr(chosen);
+    var many = sel.length > 3;
+    if (sel.length >= 2) add({key:key, k:k, type:"rank", v:v, max:Math.min(3, sel.length),
+      title:many ? L("Parmi tes réponses, quelles sont les 3 plus importantes ?","Entre tus respuestas, ¿cuáles son las 3 más importantes?","Among your answers, which are the 3 most important?")
+        : L("Classe tes réponses par ordre d'importance","Ordena tus respuestas por orden de importancia","Rank your answers in order of importance"),
+      sub:many ? L("Touche-les dans l'ordre : la plus importante d'abord.","Tócalas en orden: la más importante primero.","Tap them in order: the most important first.")
+        : L("Touche-les dans l'ordre, de la plus importante à la moins importante.","Tócalas en orden, de la más importante a la menos importante.","Tap them in order, from most to least important."),
+      opts:opts.filter(function(o){ return !o.h && sel.indexOf(o.c) >= 0; })});
+    else if (sel.length === 1) auto(v, sel[0]);
+  }
+
+  add({key:"q00", type:"single", v:"q00_langue", titleAll:"Choisis ta langue · Elige tu idioma · Choose your language",
+    opts:[{c:"fr", l:"Français"}, {c:"es", l:"Español"}, {c:"en", l:"English"}]});
+
+  add({key:"accueil", type:"screen", button:UI.start, dataLink:true,
+    title:L("Vivre mieux pour durer longtemps","Vivir mejor para durar más","Live better, last longer"),
+    body:[
+      L("Cette étude cherche à comprendre les habitudes de vie de chacun, pour le corps comme pour l'esprit, et ce qui pourrait aider à vivre mieux plus longtemps.",
+        "Este estudio busca comprender los hábitos de vida de cada persona, tanto para el cuerpo como para la mente, y lo que podría ayudar a vivir mejor durante más tiempo.",
+        "This study aims to understand each person's lifestyle habits, for body and mind alike, and what could help people live better for longer."),
+      L("Elle prend environ **20 minutes**. Je sais que ton temps est compté, et je te remercie par avance pour tes réponses. Répondre à cette étude est non seulement une façon de m'aider dans mon projet, mais aussi pour toi une manière de faire une pause de 20 minutes dans ton quotidien, de prendre du recul et de t'interroger sur tes habitudes de vie. Et rien que ça, c'est déjà thérapeutique 😃.",
+        "Te llevará unos **20 minutos**. Sé que tu tiempo es valioso, y te agradezco de antemano tus respuestas. Responder a este estudio no solo es una forma de ayudarme en mi proyecto, sino también, para ti, una manera de hacer una pausa de 20 minutos en tu día a día, tomar distancia y reflexionar sobre tus hábitos de vida. Y eso, por sí solo, ya es terapéutico 😃.",
+        "It takes about **20 minutes**. I know your time is precious, and I thank you in advance for your answers. Answering this study is not only a way of helping me with my project, but also, for you, a way to take a 20-minute break from your day, step back and think about your lifestyle habits. And that alone is already therapeutic 😃."),
+      L("Toutes les réponses sont anonymes et il n'y a pas de bonne ou de mauvaise réponse. Si tu le souhaites, tu recevras la synthèse de l'étude à la fin, et ta situation par rapport à l'ensemble des répondants.",
+        "Todas las respuestas son anónimas y no hay respuestas correctas ni incorrectas. Si quieres, al final recibirás la síntesis del estudio y tu situación en comparación con el conjunto de participantes.",
+        "All answers are anonymous and there are no right or wrong answers. If you wish, you'll receive the summary of the study at the end, along with where you stand compared with all respondents."),
+      L("Tu peux t'arrêter à tout moment et reprendre plus tard.","Puedes parar en cualquier momento y continuar más tarde.","You can stop at any time and finish later.")
+    ],
+    fields:[{v:"consentement_etude", type:"check", req:true, l:L("J'ai lu comment mes données sont utilisées et j'accepte de participer à cette étude.","He leído cómo se utilizan mis datos y acepto participar en este estudio.","I have read how my data is used and I agree to take part in this study.")}],
+    small:L("Étude menée par Estelle Piche.","Estudio realizado por Estelle Piche.","Study conducted by Estelle Piche.")});
+
+  add({key:"q01", type:"single", v:"q01_genre",
+    title:L("Pour commencer, tu es…","Para empezar, eres…","To begin with, you are…"),
+    sub:L("Cela me permet d'accorder le texte (« seul » ou « seule », par exemple).","Así puedo adaptar el texto («solo» o «sola», por ejemplo).",""),
+    opts:[{c:"femme", l:L("Une femme","Una mujer","A woman")}, {c:"homme", l:L("Un homme","Un hombre","A man")}, {c:"autre", l:L("Je préfère me décrire autrement (précise)","Prefiero describirme de otra manera (especifica)","I prefer to describe myself differently (please specify)"), o:true}, {c:"pas_repondre", l:L("Je préfère ne pas répondre","Prefiero no responder","I prefer not to say")}]});
+
+  /* Bloc 1 */
+  add({key:"q02", k:K.b1, type:"gridScale", v:"q02_preoccupation", min:1, max:7,
+    title:L("En ce moment, à quel point chacun de ces sujets t'inquiète-t-il ?","En este momento, ¿en qué medida te inquieta cada uno de estos temas?","Right now, how much does each of these topics worry you?"),
+    lo:L("Pas du tout","Nada","Not at all"), hi:L("Énormément","Muchísimo","A great deal"),
+    items:shuffled("q02", SUJETS)});
+  var high = (ORDER.q02 || []).filter(function(c){ return PAR_SUJET[c] && c !== "relations_travail" && (S["q02_preoccupation__" + c] || 0) >= 6; });
+
+  add({key:"q03", k:K.b1, type:"single", v:"q03_entourage_general", opts:ENTOURAGE,
+    title:L("De manière générale, face à ces sujets, tu te sens…","En general, ante estos temas, te sientes…","Generally speaking, faced with these topics, do you feel…")});
+
+  /* Bloc 2 */
+  var OUINON = [{c:"oui", l:L("Oui","Sí","Yes")}, {c:"non", l:L("Non","No","No")}];
+  var anyPro = false;
+  high.forEach(function(c){
+    var sl = sujetLabel(c);
+    add({key:"q04_" + c, k:K.b2, type:"single", v:"q04_accompagne__" + c, opts:OUINON,
+      title:T("Sur @, fais-tu quelque chose en particulier ?", "En cuanto a @, ¿haces algo en particular?", "Regarding @, are you doing anything in particular?", sl)});
+    var a6 = S["q04_accompagne__" + c];
+    if (a6 === "oui") {
+      var codes = c === "forme_sante" ? Q5_FORME : PAR_SUJET[c].concat(IA_SUJET[c] ? [IA_SUJET[c]] : []);
+      add({key:"q05_" + c, k:K.b2, type:"multi", v:"q05_qui__" + c,
+        opts:codes.map(accItem).concat([AUTRE_PRO]),
+        title:T("Sur @, que fais-tu, ou avec qui ?", "En cuanto a @, ¿qué haces, o con quién?", "Regarding @, what do you do, or with whom?", sl)});
+    }
+    if (a6 === "non") {
+      add({key:"q06_" + c, k:K.b2, type:"multi", v:"q06_pourquoi__" + c,
+        title:T("Sur @, pour quelles raisons ?", "En cuanto a @, ¿por qué motivos?", "Regarding @, why is that?", sl),
+        opts:rnd("q06", [
+          {c:"temps", l:L("Je n'ai pas le temps","No tengo tiempo","I don't have time")},
+          {c:"pas_bon_pro", l:L("Je n'ai pas le bon professionnel à portée de main","No tengo al profesional adecuado a mano","I don't have the right professional at hand")},
+          {c:"pas_pense", l:L("Je n'y ai pas pensé","No se me había ocurrido","I hadn't thought of it")},
+          {c:"ne_sait_pas_qui", l:L("Je ne sais pas qui pourrait m'aider","No sé quién podría ayudarme","I don't know who could help")},
+          {c:"cout", l:L("Le coût","El coste","The cost")},
+          {c:"prefere_seul", l:L("Je préfère m'en occuper seul{|e}","Prefiero ocuparme yo sol{o|a}","I prefer to handle it myself")},
+          AUTRE()])});
+    } else if (a6 === "oui") {
+      anyPro = true;
+      add({key:"q07_" + c, k:K.b2, type:"scale", v:"q07_satisfaction__" + c, min:1, max:5,
+        title:T("Sur @, comment évalues-tu ce que tu fais aujourd'hui ?", "En cuanto a @, ¿cómo valoras lo que haces hoy?", "Regarding @, how would you rate what you do today?", sl),
+        lo:L("Très insatisfait{|e}","Muy insatisfech{o|a}","Very dissatisfied"), hi:L("Très satisfait{|e}","Muy satisfech{o|a}","Very satisfied")});
+    }
+  });
+  var accomp = anyPro;
+  var cites = [];
+  high.forEach(function(c){
+    if (S["q04_accompagne__" + c] !== "oui") return;
+    var st5 = {v:"q05_qui__" + c};
+    arr(S["q05_qui__" + c]).forEach(function(a){
+      var lb = /^autre/.test(a) ? (S[otherKey(st5, {c:a})] || "").trim() : (accItem(a) ? tx(accItem(a).l) : "");
+      if (lb && cites.indexOf(lb) < 0) cites.push(lb);
+    });
+  });
+  var recapCites = cites.length ? {label:L("Ce que tu as cité plus haut :","Lo que has mencionado antes:","What you mentioned earlier:"), items:cites} : null;
+  var Q9OPTS;
+  add({key:"q08", k:K.b2, type:"multi", v:"q08_apports", max:3, sub:L("3 réponses maximum","3 respuestas como máximo","Up to 3 answers"),
+    recap:accomp ? recapCites : null,
+    title:accomp ? L("De manière générale, quelles sont les 3 choses qui te sont le plus utiles dans tes accompagnements et solutions actuels ?","En general, ¿cuáles son las 3 cosas que te resultan más útiles en tus acompañamientos y soluciones actuales?","Generally speaking, what are the 3 things you find most useful in your current support and solutions?")
+      : L("De manière générale, quelles sont les 3 choses qui te paraissent le plus utiles dans un accompagnement (coach, mentor, club business, thérapeute, application…) ?","En general, ¿cuáles son las 3 cosas que te parecen más útiles en un acompañamiento (coach, mentor, club de negocios, terapeuta, aplicación…)?","Generally speaking, what are the 3 things that seem most useful to you in support (coach, mentor, business club, therapist, app…)?"),
+    opts:(Q9OPTS = rnd("q08", [
+      {c:"recul", l:L("Un regard extérieur, du recul","Una mirada externa, perspectiva","An outside view, perspective")},
+      {c:"expertise", l:L("L'expertise de la personne","La experiencia de la persona","The person's expertise")},
+      {c:"resultats", l:L("Des résultats concrets et mesurables","Resultados concretos y medibles","Concrete, measurable results")},
+      {c:"confiance", l:L("Une relation de confiance","Una relación de confianza","A relationship of trust")},
+      {c:"sur_mesure", l:L("Une approche adaptée à ma situation","Un enfoque adaptado a mi situación","An approach tailored to my situation")},
+      {c:"environnement", l:L("Un environnement motivant","Un entorno motivador","A motivating environment")},
+      {c:"cadre", l:L("Un cadre","Un marco, una estructura","A framework")},
+      {c:"confidentialite", l:L("La confidentialité","La confidencialidad","Confidentiality")},
+      {c:"regularite", l:L("Un rendez-vous régulier qui m'aide à tenir mes engagements","Una cita regular que me ayuda a cumplir mis compromisos","A regular appointment that helps me keep my commitments")},
+      {c:"parler", l:L("Un espace pour parler librement","Un espacio para hablar libremente","A space to speak freely")},
+      AUTRE(),
+      {c:"souplesse", l:L("La souplesse (visio, horaires, lieu)","La flexibilidad (videollamada, horarios, lugar)","Flexibility (video calls, times, place)")}]))});
+  if (accomp) {
+    add({key:"q09", k:K.b2, type:"multi", v:"q09_trouve",
+      title:L("Comment as-tu trouvé les personnes ou les outils qui t'accompagnent ?","¿Cómo encontraste a las personas o las herramientas que te acompañan?","How did you find the people or tools that support you?"),
+      opts:[
+        {c:"recommandation_proche", l:L("La recommandation d'un proche","La recomendación de alguien cercano","A recommendation from someone close")},
+        {c:"reseau_pro", l:L("Mon réseau professionnel ou un club","Mi red profesional o un club","My professional network or a club")},
+        {c:"pro_sante", l:L("Mon médecin ou un autre professionnel de santé","Mi médico u otro profesional sanitario","My doctor or another health professional")},
+        {c:"entreprise", l:L("Mon entreprise (RH, avantage salarié)","Mi empresa (RR. HH., beneficio para empleados)","My company (HR, employee benefit)")},
+        {c:"recherche_en_ligne", l:L("Une recherche en ligne, les réseaux sociaux","Una búsqueda en internet, las redes sociales","An online search, social media")},
+        {c:"ia", l:L("En demandant à une IA","Preguntando a una IA","By asking an AI")},
+        AUTRE()]});
+  }
+  add({key:"q10", k:K.b2, type:"single", v:"q10_budget_actuel", recap:accomp ? recapCites : null,
+    title:L("Environ combien dépenses-tu par an pour prendre soin de toi (professionnels, applications, abonnements), hors remboursements ?","¿Cuánto gastas aproximadamente al año en cuidarte (profesionales, aplicaciones, suscripciones), sin contar los reembolsos?","Roughly how much do you spend a year on looking after yourself (professionals, apps, subscriptions), excluding reimbursements?"),
+    opts:budget({c:"pas_repondre", l:L("Je préfère ne pas répondre","Prefiero no responder","I prefer not to say")})});
+  if (S.q10_budget_actuel && S.q10_budget_actuel !== "rien" && S.q10_budget_actuel !== "pas_repondre")
+    add({key:"q11", k:K.b2, type:"single", v:"q11_financement",
+      title:L("Qui finance ces accompagnements ?","¿Quién financia este acompañamiento?","Who pays for this support?"),
+      opts:[{c:"moi", l:L("Moi-même","Yo mism{o|a}","Myself")}, {c:"entreprise", l:L("Mon entreprise","Mi empresa","My company")}, {c:"les_deux", l:L("Les deux","Ambos","Both")}]});
+
+  /* Bloc 3 */
+  add({key:"q12", k:K.b3, type:"text", v:"q12_bienetre_def", optional:true,
+    title:L("Pour toi, que recouvre le mot « bien-être » ? À quoi te fait-il penser ?","Para ti, ¿qué abarca la palabra «bienestar»? ¿En qué te hace pensar?","To you, what does the word “well-being” cover? What does it make you think of?")});
+  add({key:"q13", k:K.b3, type:"text", v:"q13_longevite_def", optional:true,
+    check:{v:"q13_longevite_rien", l:L("Ce mot ne m'évoque rien de particulier","Esta palabra no me evoca nada en particular","This word doesn't mean anything in particular to me")},
+    title:L("Et le mot « longévité », que t'évoque-t-il ?","¿Y la palabra «longevidad»? ¿Qué te evoca?","And the word “longevity”: what does it bring to mind?")});
+  add({key:"q14", k:K.b3, type:"gridScale", v:"q14_mots", min:1, max:4, labels:AGREE,
+    title:L("Que penses-tu de ces affirmations ?","¿Qué opinas de estas afirmaciones?","What do you think of these statements?"),
+    items:shuffled("q14", [
+      {c:"longevite_immortalite", l:L("J'associe longévité à immortalité.","Asocio longevidad con inmortalidad.","I associate longevity with immortality.")},
+      {c:"longevite_stresse", l:L("Parler de longévité me stresse.","Hablar de longevidad me estresa.","Talking about longevity stresses me.")},
+      {c:"longevite_inspire", l:L("La longévité est un terme qui m'inspire.","La longevidad es un término que me inspira.","Longevity is a word that inspires me.")},
+      {c:"longevite_prevention", l:L("Il n'y a pas de longévité sans prévention.","No hay longevidad sin prevención.","There is no longevity without prevention.")},
+      {c:"longevite_plus_tard", l:L("La longévité, c'est un sujet pour plus tard, pas pour maintenant.","La longevidad es un tema para más adelante, no para ahora.","Longevity is a topic for later, not for now.")},
+      {c:"longevite_medical", l:L("La longévité, cela me fait penser à quelque chose de médical.","La longevidad me hace pensar en algo médico.","Longevity makes me think of something medical.")},
+      {c:"bienetre_inspire", l:L("Le bien-être est un terme qui m'inspire.","El bienestar es un término que me inspira.","Well-being is a word that inspires me.")},
+      {c:"bienetre_galvaude", l:L("Le bien-être est un terme galvaudé.","El bienestar es un término manido.","Well-being is an overused word.")},
+      {c:"longevite_vs_bienetre", l:L("Parler de longévité me motive plus à prendre soin de moi que parler de bien-être.","Hablar de longevidad me motiva más a cuidarme que hablar de bienestar.","Talking about longevity motivates me more to look after myself than talking about well-being.")}])});
+  add({key:"q15", k:K.b3, type:"text", v:"q15_inspire", optional:true,
+    title:L("Qu'est-ce que vivre plus longtemps en bonne santé t'inspire ?","¿Qué te inspira vivir más tiempo con buena salud?","What does living longer in good health inspire in you?")});
+  add({key:"q16", k:K.b3, type:"scale", v:"q16_maitrise", min:1, max:7,
+    title:L("Penses-tu avoir la main sur ta longévité en bonne santé ?","¿Crees que tienes en tus manos tu longevidad con buena salud?","Do you feel your healthy longevity is in your hands?"),
+    lo:L("Pas du tout","Nada","Not at all"), hi:L("Complètement","Totalmente","Completely")});
+  add({key:"q17", k:K.b3, type:"multi", v:"q17_facteurs", max:3,
+    title:L("Selon toi, quels sont les 3 facteurs qui comptent le plus pour vivre longtemps en bonne santé ?","Según tú, ¿cuáles son los 3 factores que más cuentan para vivir mucho tiempo con buena salud?","In your view, which 3 factors matter most for living a long, healthy life?"),
+    sub:L("3 réponses maximum","3 respuestas como máximo","Up to 3 answers"),
+    opts:rnd("q17", [
+      {c:"sommeil", l:L("Le sommeil","El sueño","Sleep")},
+      {c:"activite_physique", l:L("L'activité physique","La actividad física","Physical activity")},
+      {c:"nutrition", l:L("La nutrition","La nutrición","Nutrition")},
+      {c:"substances", l:L("L'évitement des substances toxiques (alcool, tabac…)","Evitar las sustancias tóxicas (alcohol, tabaco…)","Avoiding toxic substances (alcohol, tobacco…)")},
+      {c:"stress", l:L("La gestion du stress","La gestión del estrés","Managing stress")},
+      {c:"liens_sociaux", l:L("Les liens sociaux","Los vínculos sociales","Social ties")},
+      {c:"sens", l:L("Le sens donné à sa vie, la spiritualité","El sentido de la vida, la espiritualidad","Meaning in life, spirituality")},
+      {c:"genes", l:L("Les gènes","Los genes","Genes")},
+      AUTRE()])});
+  add({key:"pause_def", type:"pause", bloc:"b3", pk:"def", ill:"b2"});
+  add({key:"ecran_definition_bienetre", k:K.b3, type:"screen", button:UI.next, title:"",
+    body:[L("Voici les définitions que nous allons utiliser pour la suite.","Estas son las definiciones que utilizaremos a partir de ahora.","Here are the definitions we will use from now on."),
+      L("**Le bien-être** correspond à un état global d'équilibre et de satisfaction, dans ses trois dimensions : physique, mentale et sociale.",
+      "**El bienestar** corresponde a un estado global de equilibrio y de satisfacción, en sus tres dimensiones: física, mental y social.",
+      "**Well-being** is an overall state of balance and satisfaction, in its three dimensions: physical, mental and social."),
+      L("**La longévité** : nous parlons ici de la longévité en bonne santé. Elle est en grande partie liée à nos habitudes de vie : nos liens sociaux, notre activité physique, notre sommeil, notre alimentation, notre gestion du stress, le sens que nous donnons à notre vie et l'évitement des substances toxiques. Ces mêmes leviers nourrissent aussi le bien-être au quotidien.",
+      "**La longevidad**: hablamos aquí de la longevidad con buena salud. Está ligada en gran parte a nuestros hábitos de vida: nuestros vínculos sociales, nuestra actividad física, nuestro sueño, nuestra alimentación, nuestra gestión del estrés, el sentido que damos a nuestra vida y evitar las sustancias tóxicas. Estas mismas palancas también alimentan el bienestar en el día a día.",
+      "**Longevity**: here we mean healthy longevity. It largely depends on our lifestyle habits: our social ties, physical activity, sleep, diet, stress management, the meaning we give to our life and avoiding toxic substances. These same levers also nourish everyday well-being.")]});
+  var BAD = L("Très mauvais","Muy malo","Very poor"), GOOD = L("Excellent","Excelente","Excellent");
+  add({key:"q18", k:K.b3, type:"scale", v:"q18_bienetre_global", min:1, max:7, lo:BAD, hi:GOOD,
+    title:L("En ce moment, comment évalues-tu ton bien-être ?","En este momento, ¿cómo valoras tu bienestar?","Right now, how would you rate your well-being?")});
+  add({key:"q19", k:K.b3, type:"gridCombo", v:"q19_domaine", v2:"q19_action", min:1, max:7, lo:BAD, hi:GOOD,
+    sub:L("Pour chaque domaine : ta note, puis ce que tu fais aujourd'hui.","Para cada ámbito: tu nota y, después, lo que haces hoy.","For each area: your rating, then what you do today."),
+    cols:ACTION_COLS,
+    title:L("Et plus précisément, comment évalues-tu…","Y más concretamente, ¿cómo valoras…","And more specifically, how would you rate…"),
+    items:shuffled("q19", DOMAINES).map(function(d){ return {c:d.c, l:d.a, b:d.b, lo:d.lo, hi:d.hi}; })});
+  var sig = [
+    {c:"sommeil", l:L("Un sommeil moins bon (endormissement, réveils la nuit)","Un sueño peor (conciliar el sueño, despertares nocturnos)","Poorer sleep (falling asleep, waking at night)")},
+    {c:"energie", l:L("Moins d'énergie dans la journée","Menos energía durante el día","Less energy during the day")},
+    {c:"poids", l:L("Une prise de poids","Un aumento de peso","Weight gain")},
+    {c:"muscle", l:L("Une perte de muscle ou de force","Una pérdida de músculo o de fuerza","Loss of muscle or strength")},
+    {c:"douleurs", l:L("Des douleurs (dos, nuque, articulations…)","Dolores (espalda, cuello, articulaciones…)","Aches and pains (back, neck, joints…)")},
+    {c:"blessure", l:L("Une ou plusieurs blessures","Una o varias lesiones","One or more injuries")},
+    {c:"digestion", l:L("Une digestion moins facile","Una digestión más difícil","Harder digestion")},
+    {c:"humeur", l:L("Des sautes d'humeur, plus d'irritabilité","Cambios de humor, más irritabilidad","Mood swings, more irritability")},
+    {c:"concentration", l:L("Plus de mal à te concentrer ou à mémoriser","Más dificultad para concentrarte o memorizar","More difficulty concentrating or remembering")},
+    {c:"temps_perso", l:L("Moins de temps pour tes activités personnelles","Menos tiempo para tus actividades personales","Less time for your personal activities")}];
+  if (S.q01_genre === "femme") sig.push({c:"hormonal", l:L("Des bouffées de chaleur, des sueurs nocturnes ou des cycles qui changent","Sofocos, sudores nocturnos o ciclos que cambian","Hot flushes, night sweats or changing cycles")});
+  sig.push(AUTRE());
+  sig.push({c:"aucun", l:L("Aucun de ces changements","Ninguno de estos cambios","None of these changes"), x:true, f:true});
+  add({key:"q20", k:K.b3, type:"multi", v:"q20_signaux", opts:rnd("q20", sig),
+    title:L("Au cours des 12 derniers mois, as-tu remarqué l'un de ces changements ?","En los últimos 12 meses, ¿has notado alguno de estos cambios?","Over the past 12 months, have you noticed any of these changes?")});
+
+  /* Bloc 4 */
+  add({key:"q21", k:K.b4, type:"multi", v:"q21_sources",
+    title:L("Où t'informes-tu pour améliorer tes habitudes de vie ?","¿Dónde te informas para mejorar tus hábitos de vida?","Where do you look for information to improve your lifestyle habits?"),
+    opts:rnd("q21", [
+      {c:"medecin", l:L("Mon médecin","Mi médico","My doctor")},
+      {c:"pro", l:L("Un coach ou un autre professionnel","Un coach u otro profesional","A coach or another professional")},
+      {c:"podcasts", l:L("Des podcasts","Pódcasts","Podcasts")},
+      {c:"livres", l:L("Des livres ou la presse","Libros o prensa","Books or the press")},
+      {c:"reseaux_sociaux", l:L("Les réseaux sociaux","Las redes sociales","Social media")},
+      {c:"proches", l:L("Des proches","Personas cercanas","People close to me")},
+      {c:"montre_appli", l:L("Ma montre ou une application","Mi reloj o una aplicación","My watch or an app")},
+      {c:"ia", l:L("Une IA","Una IA","An AI")},
+      AUTRE(),
+      {c:"nulle_part", l:L("Nulle part en particulier","En ningún sitio en particular","Nowhere in particular"), x:true, f:true}])});
+  add({key:"q22", k:K.b4, type:"single", v:"q22_sport_frequence",
+    title:L("Combien de fois par semaine fais-tu du sport ou une activité physique d'au moins 30 minutes ?","¿Cuántas veces por semana haces deporte o una actividad física de al menos 30 minutos?","How many times a week do you do sport or physical activity lasting at least 30 minutes?"),
+    opts:[{c:"jamais", l:L("Jamais ou presque","Nunca o casi nunca","Never or almost never")}, {c:"1", l:L("1 fois","1 vez","Once")}, {c:"2_3", l:L("2 à 3 fois","2 o 3 veces","2 to 3 times")}, {c:"4_plus", l:L("4 fois ou plus","4 veces o más","4 times or more")}]});
+  if (S.q22_sport_frequence && S.q22_sport_frequence !== "jamais")
+    add({key:"q23", k:K.b4, type:"multi", v:"q23_sport_apports", max:3, sub:L("3 réponses maximum","3 respuestas como máximo","Up to 3 answers"),
+      title:L("Qu'est-ce que le sport t'apporte avant tout ?","¿Qué te aporta el deporte, ante todo?","What does exercise give you, above all?"),
+      opts:rnd("q23", [
+        {c:"forme", l:L("Être en forme","Estar en forma","Being fit")},
+        {c:"muscle", l:L("Développer ou garder ma masse musculaire","Desarrollar o mantener mi masa muscular","Building or keeping my muscle mass")},
+        {c:"ligne", l:L("Garder la ligne","Mantener la línea","Watching my weight")},
+        {c:"vider_tete", l:L("Me vider la tête, évacuer la pression","Despejar la mente, liberar la presión","Clearing my head, releasing pressure")},
+        {c:"sommeil", l:L("Mieux dormir","Dormir mejor","Sleeping better")},
+        {c:"defi", l:L("Me dépasser, me fixer des défis","Superarme, ponerme retos","Pushing myself, setting challenges")},
+        {c:"capitaliser", l:L("Capitaliser sur ma forme pour les années à venir","Invertir en mi forma para los próximos años","Investing in my fitness for the years ahead")},
+        {c:"equilibre", l:L("Un équilibre","Equilibrio","Balance")},
+        {c:"moment_pour_moi", l:L("Un moment pour moi","Un momento para mí","Time for myself")},
+        {c:"moment_social", l:L("Un moment avec d'autres","Un momento con otras personas","Time with others")},
+        {c:"nature", l:L("Être dehors, au contact de la nature","Estar al aire libre, en contacto con la naturaleza","Being outdoors, in touch with nature")},
+        AUTRE()])});
+  add({key:"q24", k:K.b4, type:"single", v:"q24_alimentation_attention",
+    title:L("Au quotidien, ton alimentation, c'est plutôt…","En el día a día, tu alimentación es más bien…","Day to day, your eating is mostly…"),
+    opts:[
+      {c:"sans_y_penser", l:L("Je mange sans trop y penser","Como sin pensarlo mucho","I eat without thinking about it much")},
+      {c:"un_peu", l:L("J'y fais un peu attention","Le presto algo de atención","I pay a little attention")},
+      {c:"tres_attention", l:L("J'y fais très attention, avec mes propres règles","Le presto mucha atención, con mis propias reglas","I pay close attention, with my own rules")},
+      {c:"methode", l:L("Je suis une méthode ou un programme précis","Sigo un método o un programa concreto","I follow a specific method or programme")},
+      {c:"suivi_pro", l:L("Je suis suivi{|e} par un nutritionniste ou un médecin","Me sigue un nutricionista o un médico","I'm followed by a nutritionist or a doctor")}]});
+  add({key:"q25", k:K.b4, type:"multi", v:"q25_alimentation_guide", max:3, sub:L("3 réponses maximum","3 respuestas como máximo","Up to 3 answers"),
+    title:L("Qu'est-ce qui guide le plus tes choix alimentaires ?","¿Qué guía más tus elecciones alimentarias?","What guides your food choices most?"),
+    opts:rnd("q25", [
+      {c:"plaisir", l:L("Le plaisir","El placer","Enjoyment")},
+      {c:"ligne", l:L("Garder la ligne ou perdre du poids","Mantener la línea o perder peso","Watching or losing weight")},
+      {c:"energie", l:L("Mon énergie dans la journée","Mi energía durante el día","My energy during the day")},
+      {c:"sante", l:L("Préserver ma santé sur le long terme","Preservar mi salud a largo plazo","Protecting my long-term health")},
+      {c:"perf_sport", l:L("Mes performances sportives","Mi rendimiento deportivo","My sports performance")},
+      {c:"temps", l:L("Le temps dont je dispose","El tiempo del que dispongo","The time I have")},
+      {c:"facilite", l:L("La facilité de préparation","La facilidad de preparación","How easy it is to prepare")},
+      {c:"allergies", l:L("Mes allergies ou intolérances","Mis alergias o intolerancias","My allergies or intolerances")},
+      {c:"repas_subis", l:L("Les repas d'affaires et les déplacements, que je subis","Las comidas de negocios y los viajes, que me vienen impuestos","Business meals and travel, which I don't control")},
+      AUTRE()])});
+  add({key:"q26", k:K.b4, type:"single", v:"q26_communaute",
+    title:L("Fais-tu partie d'un groupe ou d'une communauté qui te challenge ou t'aide à garder de bonnes habitudes de vie (club, groupe de course, application, défis entre amis…) ?","¿Formas parte de un grupo o una comunidad que te rete o te ayude a mantener buenos hábitos de vida (club, grupo de running, aplicación, retos entre amigos…)?","Are you part of a group or community that challenges you or helps you keep good lifestyle habits (club, running group, app, challenges with friends…)?"),
+    opts:[{c:"presentiel", l:L("Oui, en personne","Sí, en persona","Yes, in person")}, {c:"en_ligne", l:L("Oui, en ligne","Sí, en línea","Yes, online")}, {c:"les_deux", l:L("Oui, les deux","Sí, ambas","Yes, both")}, {c:"non_aimerais", l:L("Non, mais j'aimerais","No, pero me gustaría","No, but I'd like to")}, {c:"non", l:L("Non, et ça ne m'intéresse pas","No, y no me interesa","No, and I'm not interested")}]});
+  if (S.q26_communaute && !/^non/.test(S.q26_communaute)) add({key:"q27", k:K.b4, type:"text", v:"q27_communaute_quoi", optional:true, short:true,
+    title:L("Lesquels, ou sur quel thème ? Nom du club, du groupe ou de l'application","¿Cuáles, o sobre qué tema? Nombre del club, del grupo o de la aplicación","Which ones, or on what theme? Name of the club, group or app")});
+  add({key:"q28", k:K.b4, type:"single", v:"q28_communaute_avis",
+    title:L("Pour changer tes habitudes, avancer avec d'autres, c'est pour toi…","Para cambiar tus hábitos, avanzar con otras personas es para ti…","To change your habits, making progress with others is, for you…"),
+    opts:[{c:"tres_motivant", l:L("Très motivant","Muy motivador","Very motivating")}, {c:"plutot_motivant", l:L("Plutôt motivant","Bastante motivador","Fairly motivating")}, {c:"indifferent", l:L("Indifférent","Indiferente","Neither here nor there")}, {c:"plutot_pas", l:L("Plutôt pas pour moi","Más bien no es para mí","Not really for me")}, {c:"pas_du_tout", l:L("Pas du tout pour moi","Nada para mí","Not for me at all")}]});
+  var FREINS = [
+    {c:"temps", l:L("Du temps","Tiempo","Time")},
+    {c:"quoi_faire", l:L("Des repères clairs, face à des informations contradictoires","Referencias claras, ante informaciones contradictorias","Clear guidance, amid conflicting information")},
+    {c:"tenir", l:L("De la régularité dans la durée","Constancia en el tiempo","Consistency over time")},
+    {c:"cout", l:L("Le budget","El presupuesto","The budget")},
+    {c:"trouver_pro", l:L("Le bon professionnel","El profesional adecuado","The right professional")},
+    {c:"pas_perso", l:L("Une solution 100 % personnalisée","Una solución 100 % personalizada","A fully personalised solution")},
+    {c:"pas_vue_ensemble", l:L("Une vue d'ensemble de mes habitudes de vie","Una visión de conjunto de mis hábitos de vida","An overall view of my lifestyle habits")},
+    {c:"par_ou_commencer", l:L("Savoir par où commencer","Saber por dónde empezar","Knowing where to start")}];
+  add({key:"q29", k:K.b4, type:"multi", v:"q29_freins",
+    title:L("De manière générale, qu'est-ce qui te manque pour prendre soin de toi comme tu le voudrais ?","En general, ¿qué te falta para cuidarte como te gustaría?","Generally speaking, what are you missing to look after yourself as you'd like?"),
+    opts:rnd("q29", FREINS.concat([AUTRE(),
+      {c:"pas_priorite", l:L("Ce n'est pas une priorité aujourd'hui","No es una prioridad hoy","It's not a priority right now"), f:true},
+      {c:"rien", l:L("Rien ne me manque","No me falta nada","Nothing is missing"), x:true, f:true}]))});
+  var fr = arr(S.q29_freins).filter(function(c){ return c !== "pas_priorite" && c !== "rien" && c !== "autre"; });
+  if (fr.length >= 2) add({key:"q30", k:K.b4, type:"single", v:"q30_frein_principal",
+    title:L("Et qu'est-ce qui te manque le plus ?","¿Y qué es lo que más te falta?","And what are you missing most?"),
+    opts:rnd("q29", FREINS).filter(function(o){ return fr.indexOf(o.c) >= 0; })});
+  else if (fr.length === 1) auto("q30_frein_principal", fr[0]);
+
+  /* Bloc 5 : recours, un écran par thème */
+  var inQ6 = {};
+  high.forEach(function(c){
+    if (S["q04_accompagne__" + c] !== "oui") return;
+    arr(S["q05_qui__" + c]).forEach(function(a){ if (!/^autre/.test(a) && Q6B_SEULEMENT.indexOf(a) < 0) inQ6[a] = true; });
+  });
+  var used = {};
+  ACC.forEach(function(g, gi){
+    var items = g.items.filter(function(i){ return Q6B_SEULEMENT.indexOf(i.c) < 0; });
+    var preset = items.filter(function(i){ return inQ6[i.c]; }).map(function(i){ return i.c; });
+    var v = "q31_utilises__" + g.id;
+    add({key:"q31_" + g.id, k:K.b5, type:"chips", v:v, preset:preset, part:L((gi + 1) + " sur 3", (gi + 1) + " de 3", (gi + 1) + " of 3"), grp:g.id === "corps" ? g.g : null,
+      title:L("Quel(s) type(s) d'accompagnement utilises-tu aujourd'hui, ou as-tu utilisé(s) au cours des 3 dernières années ?","¿Qué tipo(s) de acompañamiento utilizas hoy, o has utilizado en los últimos 3 años?","What kind(s) of support do you use now, or have you used in the last 3 years?"),
+      sub:preset.length ? L("Touche tous ceux qui s'appliquent. Ceux que tu as cités plus haut sont déjà cochés.","Toca todos los que correspondan. Los que mencionaste antes ya están marcados.","Tap all that apply. Those you mentioned earlier are already ticked.") : UI.tapAll,
+      opts:(g.id === "corps" ? grouped(items, "q31") : [{h:g.g}].concat(shuffled("q31_" + g.id, items))).concat([{c:"aucun", l:UI.none, x:true, f:true}]),
+      otherField:gi === 2 ? {v:"q31_autre", l:L("Une autre pratique non listée ? Précise (facultatif)","¿Otra práctica que no aparece? Especifica (opcional)","Another practice not listed? Please specify (optional)")} : null});
+    var val = S[v] === undefined ? preset : arr(S[v]);
+    val.forEach(function(a){ if (a !== "aucun") used[a] = true; });
+  });
+  var g31 = ACC.slice(1).map(function(g){ return {g:g, items:g.items.filter(function(i){ return Q6B_SEULEMENT.indexOf(i.c) < 0 && !used[i.c]; })}; }).filter(function(x){ return x.items.length; });
+  g31.forEach(function(x, xi){
+    add({key:"q32_" + x.g.id, k:K.b5, type:"chips", v:"q32_envie_essayer__" + x.g.id, grp:x.g.id === "corps" ? x.g.g : null, allowOther:true,
+      part:g31.length > 1 ? L((xi + 1) + " sur " + g31.length, (xi + 1) + " de " + g31.length, (xi + 1) + " of " + g31.length) : null,
+      title:L("Et parmi les autres accompagnements et solutions, lesquels aimerais-tu essayer pour améliorer tes habitudes de vie ?","¿Y entre los demás acompañamientos y soluciones, cuáles te gustaría probar para mejorar tus hábitos de vida?","And among the other kinds of support and solutions, which would you like to try to improve your lifestyle habits?"),
+      sub:UI.tapAll,
+      opts:(x.g.id === "corps" ? grouped(x.items, "q32") : [{h:x.g.g}].concat(shuffled("q32_" + x.g.id, x.items))).concat([{c:"aucun", l:UI.none, x:true, f:true}]),
+      otherField:{v:"q32_envie_essayer__" + x.g.id + "__autre", l:L("Autre ? Précise (facultatif)","¿Otro? Especifica (opcional)","Other? Please specify (optional)")}});
+  });
+  var OUTILS_CH = [
+    {c:"oui_regulier", l:L("Oui, régulièrement","Sí, con regularidad","Yes, regularly")},
+    {c:"oui_parfois", l:L("Oui, de temps en temps","Sí, de vez en cuando","Yes, from time to time")},
+    {c:"non_interesse", l:L("Non, mais ça m'intéresse","No, pero me interesa","No, but I'm interested")},
+    {c:"non_pas_pour_moi", l:L("Non, ce n'est pas pour moi","No, no es para mí","No, it's not for me")}];
+  add({key:"q33", k:K.b5, type:"gridScale", v:"q33_outils_actuels", choices:OUTILS_CH,
+    title:L("Plus précisément, aujourd'hui, utilises-tu…","Más concretamente, hoy en día, ¿utilizas…","More specifically, do you currently use…"),
+    items:rnd("q33", [
+      {c:"bilan_plateforme", l:L("Un bilan de santé complet et régulier (biomarqueurs, âge biologique…)","Un chequeo de salud completo y periódico (biomarcadores, edad biológica…)","A full, regular health check-up (biomarkers, biological age…)")},
+      {c:"plateforme_habitudes", l:L("Une plateforme digitale de suivi de tes habitudes de vie (nutrition, sommeil, activité…)","Una plataforma digital de seguimiento de tus hábitos de vida (nutrición, sueño, actividad…)","A digital platform tracking your lifestyle habits (nutrition, sleep, activity…)")},
+      {c:"clinique_longevite", l:L("Un suivi dans une clinique ou un centre spécialisé en longévité","Un seguimiento en una clínica o un centro especializado en longevidad","Follow-up at a clinic or centre specialising in longevity")},
+      {c:"personne_prevention", l:L("Une personne qui t'accompagne régulièrement en prévention","Una persona que te acompaña regularmente en prevención","Someone who supports you regularly with prevention")}])});
+  var prev = S.q33_outils_actuels__personne_prevention;
+  if (prev === "oui_regulier" || prev === "oui_parfois" || prev === "non_interesse") add({key:"q34", k:K.b5, type:"single", v:"q34_prevention_qui",
+    title:prev === "non_interesse" ? L("Cette personne, ce serait plutôt…","Esa persona sería más bien…","That person would rather be…") : L("Cette personne, c'est…","Esa persona es…","That person is…"),
+    opts:[{c:"medecin", l:L("Un médecin","Un médico","A doctor")}, {c:"coach", l:L("Un coach","Un coach","A coach")},
+      {c:"autre", l:L("Un autre professionnel (précise)","Otro profesional (especifica)","Another professional (please specify)"), o:true}].concat(prev === "non_interesse" ? [{c:"peu_importe", l:L("Peu importe","Me da igual","It doesn't matter")}] : [])});
+  var usesData = Object.keys(used).some(function(a){ return /^objet_/.test(a); }) || ["bilan_plateforme","plateforme_habitudes","clinique_longevite"].some(function(c){ var v = S["q33_outils_actuels__" + c]; return v === "oui_regulier" || v === "oui_parfois"; });
+  if (usesData) add({key:"q35", k:K.b5, type:"multi", v:"q35_interpretation",
+    title:L("Ces données et ces bilans, qui t'aide à les comprendre et à en tirer des actions concrètes ?","Esos datos y esos chequeos, ¿quién te ayuda a entenderlos y a convertirlos en acciones concretas?","Who helps you understand this data and these check-ups, and turn them into concrete actions?"),
+    sub:UI.tapAll,
+    opts:[
+      {c:"medecin", l:L("Un médecin","Un médico","A doctor")},
+      {c:"coach_pro", l:L("Un coach ou un autre professionnel","Un coach u otro profesional","A coach or another professional")},
+      {c:"ia", l:L("Une IA","Una IA","An AI")},
+      {c:"autre", l:L("Quelqu'un d'autre (précise)","Otra persona (especifica)","Someone else (please specify)"), o:true},
+      {c:"seul", l:L("Personne, je les analyse seul{|e}","Nadie, los analizo por mi cuenta","No one, I analyse them myself"), x:true},
+      {c:"pas_vraiment", l:L("Personne, et je ne sais pas vraiment quoi en faire","Nadie, y no sé muy bien qué hacer con ellos","No one, and I don't really know what to do with them"), x:true}]});
+  add({key:"q36", k:K.b5, type:"gridScale", v:"q36_affirmations", min:1, max:4, labels:AGREE,
+    title:L("Que penses-tu de ces affirmations ?","¿Qué opinas de estas afirmaciones?","What do you think of these statements?"),
+    items:shuffled("q36", [
+      {c:"sport_savoir", l:L("Je sais quel sport pratiquer, et combien, pour rester en forme.","Sé qué deporte practicar, y cuánto, para mantenerme en forma.","I know what exercise to do, and how much, to stay fit.")},
+      {c:"nature_manque", l:L("Je passe moins de temps dans la nature que je ne le voudrais.","Paso menos tiempo en la naturaleza del que me gustaría.","I spend less time in nature than I'd like.")},
+      {c:"perf_depend", l:L("Ma performance au travail dépend directement de mon sommeil, de mon énergie et de mon équilibre.","Mi rendimiento en el trabajo depende directamente de mi sueño, mi energía y mi equilibrio.","My performance at work depends directly on my sleep, energy and balance.")},
+      {c:"quand_ca_va_mal", l:L("Je m'occupe de ma forme et de mon bien-être surtout quand quelque chose ne va pas.","Me ocupo de mi forma y mi bienestar sobre todo cuando algo va mal.","I mostly look after my fitness and well-being when something is wrong.")}])});
+  add({key:"ecran_approche_globale", k:K.b5, type:"screen", button:UI.next, title:"",
+    body:[L("Imagine un accompagnement qui regarde ensemble ton sommeil, ta forme physique, ton alimentation, la pression que tu vis, tes relations et le sens de ce que tu fais, et dont l'objectif est de te permettre de vivre mieux, plus longtemps.",
+      "Imagina un acompañamiento que tenga en cuenta a la vez tu sueño, tu forma física, tu alimentación, la presión que vives, tus relaciones y el sentido de lo que haces, y cuyo objetivo sea permitirte vivir mejor durante más tiempo.",
+      "Imagine support that looks at your sleep, fitness, diet, the pressure you face, your relationships and the meaning of what you do, all together, with the aim of helping you live better, for longer.")]});
+  add({key:"q37", k:K.b5, type:"scale", v:"q37_interet_global", min:1, max:7,
+    title:L("De manière générale, ce type d'accompagnement t'intéresserait-il ?","En general, ¿te interesaría este tipo de acompañamiento?","Generally speaking, would this kind of support interest you?"),
+    lo:L("Pas du tout","Nada","Not at all"), hi:L("Énormément","Muchísimo","A great deal")});
+  add({key:"q38", k:K.b5, type:"text", v:"q38_plairait", optional:true,
+    title:L("Qu'est-ce qui te plairait dans un tel accompagnement ?","¿Qué te gustaría de un acompañamiento así?","What would you like about such support?")});
+  add({key:"q39", k:K.b5, type:"text", v:"q39_generait", optional:true,
+    title:L("Et qu'est-ce qui te gênerait ou te ferait hésiter ?","¿Y qué te molestaría o te haría dudar?","And what would bother you or make you hesitate?")});
+  var ATT = [
+    {c:"energie", l:L("Plus d'énergie","Más energía","More energy")},
+    {c:"calme", l:L("Plus de calme, moins de pression","Más calma, menos presión","More calm, less pressure")},
+    {c:"clarte", l:L("Plus de clarté pour décider","Más claridad para decidir","More clarity in my decisions")},
+    {c:"temps_proches", l:L("Plus de temps et de disponibilité pour mes proches","Más tiempo y disponibilidad para mis seres queridos","More time and availability for my loved ones")},
+    {c:"bien_corps", l:L("Me sentir bien dans mon corps","Sentirme bien en mi cuerpo","Feeling good in my body")},
+    {c:"habitudes", l:L("Des habitudes qui tiennent dans la durée","Hábitos que se mantengan en el tiempo","Habits that last")},
+    {c:"sante_longue", l:L("Rester en bonne santé plus longtemps","Mantenerme san{o|a} más tiempo","Staying healthy for longer")},
+    {c:"progres_mesures", l:L("Voir mes progrès mesurés","Ver mis progresos medidos","Seeing my progress measured")},
+    {c:"nature", l:L("Me reconnecter à la nature","Reconectar con la naturaleza","Reconnecting with nature")}];
+  add({key:"q40", k:K.b5, type:"chips", v:"q40_attentes", allowOther:true, max:3, sub:L("3 réponses maximum","3 respuestas como máximo","Up to 3 answers"),
+    otherField:{v:"q40_attentes__autre", l:L("Autre ? Précise (facultatif)","¿Otro? Especifica (opcional)","Other? Please specify (optional)")},
+    title:L("Qu'attendrais-tu avant tout d'un tel accompagnement, en résultats ou en ressentis ?","¿Qué esperarías ante todo de un acompañamiento así, en resultados o en sensaciones?","What would you expect above all from this kind of support, in results or in how you feel?"),
+    opts:rnd("q40", ATT)});
+  add({key:"q41", k:K.b5, type:"single", v:"q41_premier_levier",
+    title:L("Si tu devais commencer par un seul levier, ce serait…","Si tuvieras que empezar por una sola palanca, sería…","If you had to start with just one lever, it would be…"),
+    opts:rnd("q41", [
+      {c:"activite_physique", l:L("L'activité physique","La actividad física","Physical activity")},
+      {c:"alimentation", l:L("L'alimentation","La alimentación","Diet")},
+      {c:"sommeil", l:L("Le sommeil","El sueño","Sleep")},
+      {c:"stress", l:L("La gestion du stress","La gestión del estrés","Stress management")},
+      {c:"toxiques", l:L("La maîtrise des toxiques","El control de los tóxicos","Cutting down on toxic substances")},
+      {c:"relations", l:L("Mes relations","Mis relaciones","My relationships")},
+      {c:"sens", l:L("Le sens de ce que je fais","El sentido de lo que hago","The meaning of what I do")}])});
+  if ((S.q37_interet_global || 0) >= 3) {
+    var F39 = [
+      {id:"bilan", h:L("Le bilan","El chequeo","The assessment"), none:L("Pas de bilan","Ningún chequeo","No assessment"), items:[
+        {c:"biomarqueurs", l:L("Des biomarqueurs (prise de sang, objet connecté…)","Biomarcadores (análisis de sangre, dispositivo conectado…)","Biomarkers (blood tests, connected device…)")},
+        {c:"bilan_comportemental", l:L("Un bilan comportemental de tes habitudes de vie (sommeil, stress, alimentation, activité…)","Un chequeo de comportamiento de tus hábitos de vida (sueño, estrés, alimentación, actividad…)","A behavioural assessment of your lifestyle habits (sleep, stress, diet, activity…)")},
+        {c:"entretien_expert", l:L("Un entretien approfondi avec un expert","Una entrevista en profundidad con un experto","An in-depth interview with an expert")}]},
+      {id:"solutions", h:L("Les solutions","Las soluciones","Solutions"), none:L("Aucune de ces solutions","Ninguna de estas soluciones","None of these solutions"), items:[
+        {c:"plan_routines", l:L("Un plan avec des routines personnalisées, à suivre en autonomie","Un plan con rutinas personalizadas, para seguir por tu cuenta","A plan with personalised routines, to follow on your own")},
+        {c:"soins_centre", l:L("Un suivi médical et des traitements en clinique (perfusions, caisson à oxygène, cryothérapie…)","Un seguimiento médico y tratamientos en clínica (goteros, cámara de oxígeno, crioterapia…)","Medical follow-up and treatments in a clinic (IV drips, oxygen chamber, cryotherapy…)")},
+        {c:"complements", l:L("Des compléments alimentaires personnalisés","Suplementos alimenticios personalizados","Personalised food supplements")},
+        {c:"journees", l:L("Des journées d'application, en présentiel, pour mettre en pratique","Jornadas de aplicación, presenciales, para ponerlo en práctica","In-person application days, to put things into practice")},
+        {c:"retraite", l:L("Une retraite de 2 jours ou plus, de temps en temps","Un retiro de 2 días o más, de vez en cuando","A retreat of 2 days or more, from time to time")},
+        {c:"sessions", l:L("Des sessions de 2 heures, en présentiel","Sesiones de 2 horas, presenciales","2-hour in-person sessions")}]},
+      {id:"suivi", h:L("Le suivi","El seguimiento","Follow-up"), none:L("Pas de suivi","Ningún seguimiento","No follow-up"), items:[
+        {c:"coach_global", l:L("Un coach global, qui fait appel à des experts quand il le faut","Un coach global, que recurre a expertos cuando hace falta","An all-round coach, who brings in experts when needed")},
+        {c:"suivi_experts", l:L("Un suivi régulier avec un expert pour chaque sujet","Un seguimiento regular con un experto para cada tema","Regular follow-up with an expert for each topic")},
+        {c:"groupe_pairs", l:L("Une communauté de pairs avec laquelle échanger et se réunir","Una comunidad de pares con la que intercambiar y reunirse","A community of peers to exchange and meet with")},
+        {c:"club", l:L("Un club, avec des rencontres et des activités régulières","Un club, con encuentros y actividades regulares","A club, with regular meetings and activities")},
+        {c:"digital", l:L("Une application ou une plateforme, avec du contenu d'experts","Una aplicación o una plataforma, con contenido de expertos","An app or platform, with expert content")}]}];
+    F39.forEach(function(g, gi){
+      add({key:"q42_" + g.id, k:K.b5, type:"chips", v:"q42_formats__" + g.id, allowOther:true,
+        part:L((gi + 1) + " sur 3", (gi + 1) + " de 3", (gi + 1) + " of 3"),
+        title:L("Quels formats d'accompagnement te conviendraient ?","¿Qué formatos de acompañamiento te convendrían?","Which formats of support would suit you?"),
+        sub:gi === 0 ? L("Ils ne s'excluent pas : ils peuvent se combiner. Touche tous ceux qui te conviendraient.","No se excluyen: pueden combinarse. Toca todos los que te convendrían.","They're not mutually exclusive: they can be combined. Tap all that would suit you.") : UI.tapAll,
+        opts:[{h:g.h}].concat(shuffled("q42_" + g.id, g.items)).concat([{c:"aucun", l:g.none, x:true, f:true}]),
+        otherField:{v:"q42_formats__" + g.id + "__autre", l:L("Autre ? Précise (facultatif)","¿Otro? Especifica (opcional)","Other? Please specify (optional)")}});
+    });
+    S.q42_formats = [];
+    F39.forEach(function(g){ arr(S["q42_formats__" + g.id]).forEach(function(c){ if (c !== "aucun") S.q42_formats.push(c); }); });
+    var f39 = arr(S.q42_formats);
+    var LIEU_CH = [{c:"ville", l:L("En ville","En la ciudad","In the city")}, {c:"nature", l:L("Dans la nature","En la naturaleza","In nature")}, {c:"peu_importe", l:L("Peu importe","Me da igual","It doesn't matter")}];
+    var LIEU_IT = {c:"lieu", l:L("Le lieu","El lugar","The place"), choices:LIEU_CH};
+    if (f39.indexOf("journees") >= 0) add({key:"q43", k:K.b5, type:"gridScale", v:"q43_journees",
+      title:L("Ces journées d'application, tu les verrais plutôt…","Esas jornadas de aplicación, ¿cómo las verías?","How would you see those application days?"),
+      items:[LIEU_IT,
+        {c:"contenu", l:L("Le contenu","El contenido","The content"), choices:[
+          {c:"un_theme", l:L("Un thème par journée (sommeil, nutrition, stress…)","Un tema por jornada (sueño, nutrición, estrés…)","One theme per day (sleep, nutrition, stress…)")},
+          {c:"melange", l:L("Un mélange de pratiques","Una mezcla de prácticas","A mix of practices")}]},
+        {c:"rythme", l:L("Le rythme","El ritmo","How often"), choices:[
+          {c:"mensuel", l:L("Une par mois","Una al mes","Once a month")},
+          {c:"deux_mois", l:L("Une tous les 2 mois","Una cada 2 meses","Every 2 months")},
+          {c:"trimestre", l:L("Une par trimestre","Una por trimestre","Once a quarter")}]}]});
+    if (f39.indexOf("retraite") >= 0) add({key:"q44", k:K.b5, type:"gridScale", v:"q44_retraite",
+      title:L("Cette retraite, tu la verrais plutôt…","Ese retiro, ¿cómo lo verías?","How would you see that retreat?"),
+      items:[LIEU_IT,
+        {c:"duree", l:L("La durée","La duración","How long"), choices:[
+          {c:"deux_jours", l:L("2 jours","2 días","2 days")},
+          {c:"trois_quatre", l:L("3 à 4 jours","De 3 a 4 días","3 to 4 days")},
+          {c:"cinq_plus", l:L("5 jours ou plus","5 días o más","5 days or more")}]},
+        {c:"rythme", l:L("Le rythme","El ritmo","How often"), choices:[
+          {c:"trimestre", l:L("Une par trimestre","Uno por trimestre","Once a quarter")},
+          {c:"semestre", l:L("Une par semestre","Uno por semestre","Twice a year")},
+          {c:"an", l:L("Une par an","Uno al año","Once a year")}]}]});
+    if (f39.indexOf("sessions") >= 0) add({key:"q45", k:K.b5, type:"gridScale", v:"q45_sessions",
+      title:L("Ces sessions de 2 heures, tu les verrais plutôt…","Esas sesiones de 2 horas, ¿cómo las verías?","How would you see those 2-hour sessions?"),
+      items:[
+        {c:"moment", l:L("Le moment","El momento","When"), choices:[
+          {c:"matin", l:L("Le matin, avant ma journée","Por la mañana, antes de mi jornada","In the morning, before my day")},
+          {c:"soir", l:L("En fin de journée, avant de rentrer","Al final del día, antes de volver a casa","At the end of the day, before going home")},
+          {c:"diner", l:L("Autour d'un dîner","En torno a una cena","Over dinner")},
+          {c:"peu_importe", l:L("Peu importe","Me da igual","It doesn't matter")}]},
+        {c:"contenu", l:L("Le contenu","El contenido","The content"), choices:[
+          {c:"pratique", l:L("Pratiquer (par exemple du breathwork)","Practicar (por ejemplo, breathwork)","Practising (breathwork, for example)")},
+          {c:"conference", l:L("Écouter un expert (conférence)","Escuchar a un experto (conferencia)","Listening to an expert (talk)")},
+          {c:"les_deux", l:L("Les deux","Ambas cosas","Both")}]}]});
+    var chosen = [];
+    F39.forEach(function(g){
+      g.items.forEach(function(o){ if (f39.indexOf(o.c) >= 0) chosen.push(o.l); });
+      var au = (S["q42_formats__" + g.id + "__autre"] || "").trim(); if (au) chosen.push(au);
+    });
+    var chosenOpts = [];
+    F39.forEach(function(g){ if (g.id === "bilan") return; g.items.forEach(function(o){ if (f39.indexOf(o.c) >= 0) chosenOpts.push({c:o.c, l:o.l}); }); });
+    if (chosenOpts.length >= 2) add({key:"q46", k:K.b5, type:"single", v:"q46_format_prefere",
+      title:L("Si tu ne devais garder qu'un seul de ces formats, ce serait…","Si solo pudieras quedarte con uno de estos formatos, sería…","If you could keep only one of these formats, it would be…"),
+      opts:chosenOpts});
+  }
+  add({key:"q47", k:K.b5, type:"single", v:"q47_facteur_humain",
+    title:L("Pour t'aider à changer tes habitudes dans la durée, une personne qui te suit, ce serait pour toi…","Para ayudarte a cambiar tus hábitos de forma duradera, que una persona te acompañe sería para ti…","To help you change your habits for good, having a person who follows you would be…"),
+    opts:[
+      {c:"indispensable", l:L("Indispensable","Imprescindible","Essential")},
+      {c:"vrai_plus", l:L("Un vrai plus","Un verdadero plus","A real plus")},
+      {c:"utile", l:L("Utile, mais pas nécessaire","Útil, pero no necesario","Useful, but not necessary")},
+      {c:"pas_necessaire", l:L("Pas nécessaire, des outils me suffisent","No es necesario, me bastan las herramientas","Not necessary, tools are enough for me")}]});
+  if (S.q47_facteur_humain && S.q47_facteur_humain !== "pas_necessaire") add({key:"q48", k:K.b5, type:"gridScale", v:"q48_modalites",
+    title:L("Et si une personne t'accompagnait, tu préférerais…","Y si una persona te acompañara, preferirías…","And if someone were supporting you, you would prefer…"),
+    items:[
+      {c:"rencontres", l:L("Les rencontres","Los encuentros","Meetings"), choices:[
+        {c:"presentiel", l:L("En présentiel","Presencial","In person")},
+        {c:"visio", l:L("En visio","Por videollamada","By video call")},
+        {c:"mixte", l:L("Un mélange des deux","Una mezcla de ambos","A mix of both")}]},
+      {c:"rythme", l:L("Le rythme","El ritmo","How often"), choices:[
+        {c:"hebdo", l:L("Chaque semaine","Cada semana","Every week")},
+        {c:"deux_semaines", l:L("Toutes les 2 semaines","Cada 2 semanas","Every 2 weeks")},
+        {c:"mensuel", l:L("Une fois par mois","Una vez al mes","Once a month")},
+        {c:"moins", l:L("Moins souvent","Con menos frecuencia","Less often")}]},
+      {c:"format", l:L("Le format","El formato","The format"), choices:[
+        {c:"individuel", l:L("En individuel","Individual","One-to-one")},
+        {c:"petit_groupe", l:L("En petit groupe (4 à 8 personnes)","En grupo reducido (de 4 a 8 personas)","In a small group (4 to 8 people)")},
+        {c:"mixte", l:L("Un mélange des deux","Una mezcla de ambos","A mix of both")}]}]});
+  if ((S.q37_interet_global || 0) >= 3) {
+    add({key:"q49", k:K.b5, type:"single", v:"q49_budget_envisage",
+      recap:{text:L("Pour rappel : un accompagnement qui regarde ensemble ton sommeil, ta forme physique, ton alimentation, la pression que tu vis, tes relations et le sens de ce que tu fais, pour te permettre de vivre mieux, plus longtemps.",
+        "Recordatorio: un acompañamiento que tiene en cuenta a la vez tu sueño, tu forma física, tu alimentación, la presión que vives, tus relaciones y el sentido de lo que haces, para permitirte vivir mejor durante más tiempo.",
+        "As a reminder: support that looks at your sleep, fitness, diet, the pressure you face, your relationships and the meaning of what you do, all together, to help you live better, for longer."),
+        label:L("Le ou les formats que tu as choisis :","El o los formatos que has elegido:","The format(s) you chose:"), items:chosen},
+      title:L("Quel budget annuel pourrais-tu consacrer à un tel accompagnement ?","¿Qué presupuesto anual podrías dedicar a un acompañamiento así?","What annual budget could you devote to such support?"),
+      opts:budget({c:"nsp", l:L("Je ne sais pas","No lo sé","I don't know")})});
+  }
+  add({key:"q50", k:K.b5, type:"single", v:"q50_lieu",
+    title:L("Accorderais-tu de la valeur à un lieu dédié à cet accompagnement ?","¿Valorarías que existiera un lugar dedicado a este acompañamiento?","Would you value having a place dedicated to this kind of support?"),
+    opts:[
+      {c:"lieu_unique", l:L("Oui, un lieu unique qui rassemble tout","Sí, un único lugar que lo reúna todo","Yes, a single place that brings everything together")},
+      {c:"plusieurs_lieux", l:L("Oui, mais plutôt l'accès à plusieurs lieux","Sí, pero más bien acceso a varios lugares","Yes, but rather access to several places")},
+      {c:"non_digital", l:L("Non, pas besoin : tout peut se faire en digital","No, no hace falta: todo puede hacerse en digital","No, no need: everything can be done digitally")}]});
+  if (S.q50_lieu === "lieu_unique" || S.q50_lieu === "plusieurs_lieux") add({key:"q51", k:K.b5, type:"chips", v:"q51_lieu_usages", allowOther:true,
+    title:L("Et pour y faire quoi ?","¿Y para hacer qué?","And to do what there?"), sub:UI.tapAll,
+    opts:shuffled("q51", [
+      {c:"coach", l:L("Retrouver mon coach","Ver a mi coach","Meeting my coach")},
+      {c:"experts", l:L("Mes rendez-vous avec les thérapeutes et les experts","Mis citas con los terapeutas y los expertos","My appointments with therapists and experts")},
+      {c:"communaute", l:L("Rencontrer la communauté","Conocer a la comunidad","Meeting the community")},
+      {c:"salle_sport", l:L("Accéder à une salle de sport","Acceder a un gimnasio","Using a gym")},
+      {c:"wellness", l:L("Accéder à un espace bien-être (spa, sauna…)","Acceder a un espacio de bienestar (spa, sauna…)","Using a wellness area (spa, sauna…)")},
+      {c:"club_social", l:L("Un club social autour de la longévité","Un club social en torno a la longevidad","A social club around longevity")}]),
+    otherField:{v:"q51_lieu_usages__autre", l:L("Autre ? Précise (facultatif)","¿Otro? Especifica (opcional)","Other? Please specify (optional)")}});
+  if ((S.q37_interet_global || 0) >= 3) {
+    add({key:"q52", k:K.b5, type:"single", v:"q52_intention",
+      title:L("Si un tel accompagnement ouvrait près de chez toi l'année prochaine, tu…","Si un acompañamiento así abriera cerca de ti el año que viene…","If this kind of support opened near you next year, you would…"),
+      opts:[
+        {c:"certainement", l:L("Le testerais certainement","Lo probarías seguro","Definitely try it")},
+        {c:"probablement", l:L("Le testerais probablement","Probablemente lo probarías","Probably try it")},
+        {c:"peut_etre", l:L("Le testerais peut-être","Quizá lo probarías","Maybe try it")},
+        {c:"probablement_pas", l:L("Ne le testerais probablement pas","Probablemente no lo probarías","Probably not try it")},
+        {c:"certainement_pas", l:L("Ne le testerais certainement pas","Seguro que no lo probarías","Definitely not try it")}]});
+  }
+
+  /* Bloc 6 */
+  add({key:"q53", k:K.b6, type:"single", v:"q53_parler",
+    title:L("De manière générale, as-tu aujourd'hui quelqu'un à qui parler librement de ce que tu vis, professionnellement et personnellement ?","En general, ¿tienes hoy a alguien con quien hablar libremente de lo que vives, en lo profesional y en lo personal?","Generally speaking, do you currently have someone you can talk to freely about what you're going through, professionally and personally?"),
+    opts:[{c:"plusieurs", l:L("Oui, plusieurs personnes","Sí, varias personas","Yes, several people")}, {c:"une", l:L("Oui, une personne","Sí, una persona","Yes, one person")}, {c:"pas_vraiment", l:L("Pas vraiment","No realmente","Not really")}, {c:"non", l:L("Non","No","No")}]});
+  add({key:"q54", k:K.b6, type:"single", v:"q54_ia_confident",
+    title:L("T'arrive-t-il de parler à une IA de ce que tu vis ?","¿Te ocurre hablar con una IA de lo que vives?","Do you ever talk to an AI about what you're going through?"),
+    opts:[{c:"non", l:L("Non","No","No")}, {c:"oui_convient", l:L("Oui, et cela me convient","Sí, y me parece bien","Yes, and I'm fine with that")}, {c:"oui_convient_pas", l:L("Oui, mais cela ne me convient pas vraiment","Sí, pero no me convence del todo","Yes, but I'm not really comfortable with that")}]});
+  add({key:"q55", k:K.b6, type:"single", v:"q55_espace_ecoute",
+    title:L("Un espace d'écoute régulier, sans que ce soit une thérapie, te serait…","Un espacio de escucha regular, sin que sea una terapia, te resultaría…","A regular listening space, without it being therapy, would be…"),
+    opts:[{c:"pas_utile", l:L("Pas utile","Nada útil","Not useful")}, {c:"peu_utile", l:L("Peu utile","Poco útil","Of little use")}, {c:"plutot_utile", l:L("Plutôt utile","Bastante útil","Fairly useful")}, {c:"tres_utile", l:L("Très utile","Muy útil","Very useful")}, {c:"indispensable", l:L("Indispensable","Imprescindible","Essential")}]});
+
+  add({key:"q56", k:K.b6, type:"single", v:"q56_formulation",
+    title:L("Avec laquelle de ces formulations serais-tu le plus à l'aise pour parler d'un accompagnement pour ta longévité en bonne santé ?","¿Con cuál de estas formulaciones te sentirías más a gusto para hablar de un acompañamiento para tu longevidad con buena salud?","Which of these phrasings would you be most comfortable with when talking about support for your healthy longevity?"),
+    opts:rnd("q56", [
+      {c:"prendre_soin", l:L("Prendre soin de moi pour durer plus longtemps","Cuidar de mí para durar más","Taking care of myself to last longer")},
+      {c:"vivre_mieux", l:L("Vivre mieux plus longtemps","Vivir mejor durante más tiempo","Living better for longer")},
+      {c:"performance_durable", l:L("Agir sur mes habitudes pour une performance durable","Actuar sobre mis hábitos para un rendimiento sostenible","Working on my habits for sustainable performance")},
+      AUTRE()])});
+
+  /* Bloc 7 */
+  add({key:"q57", k:K.b7, type:"single", v:"q57_situation",
+    title:L("Quelle est ta situation professionnelle aujourd'hui ?","¿Cuál es tu situación profesional actual?","What is your current professional situation?"),
+    opts:[
+      {c:"fondateur", l:L("Fondat{eur|rice} ou dirigeant{|e} de ma propre entreprise","Fundador{|a} o director{|a} de mi propia empresa","Founder or head of my own company")},
+      {c:"dirigeant_salarie", l:L("Dirigeant{|e} salarié{|e} (direction générale, comité de direction)","Directiv{o|a} asalariad{o|a} (dirección general, comité de dirección)","Employed executive (general management, executive committee)")},
+      {c:"cadre", l:L("Cadre supérieur{|e} ou manager","Mando superior o mánager","Senior manager or manager")},
+      {c:"liberal", l:L("Profession libérale (avocat, médecin, architecte, conseil…)","Profesional liberal (abogado, médico, arquitecto, consultor…)","Independent professional (lawyer, doctor, architect, consultant…)")},
+      {c:"independant", l:L("Indépendant{|e} ou freelance","Autónom{o|a} o freelance","Freelance or self-employed")},
+      {c:"transition", l:L("En transition professionnelle","En transición profesional","In a career transition")},
+      AUTRE()]});
+  if (S.q57_situation && S.q57_situation !== "transition") add({key:"q58", k:K.b7, type:"single", v:"q58_taille",
+    title:L("Combien de personnes compte ton entreprise ou ton périmètre ?","¿Cuántas personas tiene tu empresa o tu área de responsabilidad?","How many people are in your company or your area of responsibility?"),
+    opts:[{c:"seul", l:L("Je travaille seul{|e}","Trabajo sol{o|a}","I work alone")}, {c:"2_10", l:L("2 à 10","De 2 a 10","2 to 10")}, {c:"11_50", l:L("11 à 50","De 11 a 50","11 to 50")}, {c:"51_250", l:L("51 à 250","De 51 a 250","51 to 250")}, {c:"plus_250", l:L("Plus de 250","Más de 250","More than 250")}]});
+  add({key:"q59", k:K.b7, type:"single", v:"q59_heures",
+    title:L("En moyenne, combien d'heures travailles-tu par semaine ?","Por término medio, ¿cuántas horas trabajas a la semana?","On average, how many hours do you work per week?"),
+    opts:[{c:"moins_40", l:L("Moins de 40 h","Menos de 40 h","Under 40 h")}, {c:"40_50", l:L("40 à 50 h","De 40 a 50 h","40 to 50 h")}, {c:"50_60", l:L("50 à 60 h","De 50 a 60 h","50 to 60 h")}, {c:"plus_60", l:L("Plus de 60 h","Más de 60 h","Over 60 h")}]});
+  add({key:"q60", k:K.b7, type:"single", v:"q60_age", title:L("Ton âge","Tu edad","Your age"),
+    opts:[{c:"moins_35", l:L("Moins de 35 ans","Menos de 35 años","Under 35")}, {c:"35_44", l:L("35-44 ans","35-44 años","35-44")}, {c:"45_54", l:L("45-54 ans","45-54 años","45-54")}, {c:"55_64", l:L("55-64 ans","55-64 años","55-64")}, {c:"65_plus", l:L("65 ans et plus","65 años o más","65 and over")}]});
+  add({key:"q61", k:K.b7, type:"multi", v:"q61_famille", title:L("Ta situation familiale","Tu situación familiar","Your family situation"),
+    opts:[{c:"en_couple", l:L("En couple","En pareja","In a relationship")}, {c:"celibataire", l:L("Célibataire","Solter{o|a}","Single")}, {c:"enfants", l:L("Enfants à charge","Hijos a cargo","Dependent children")}, {c:"parents_ages", l:L("Parent(s) âgé(s) à accompagner","Padre(s) mayor(es) a los que cuidar","Elderly parent(s) to care for")}]});
+  add({key:"q62", k:K.b7, type:"multi", v:"q62_nationalite",
+    title:L("Quelle est ta nationalité ?","¿Cuál es tu nacionalidad?","What is your nationality?"),
+    opts:[{c:"francaise", l:L("Française","Francesa","French")}, {c:"espagnole", l:L("Espagnole","Española","Spanish")}, {c:"americaine", l:L("Américaine","Estadounidense","American")}, {c:"autre", l:L("Autre (précise)","Otra (especifica)","Other (please specify)"), o:true}]});
+  add({key:"q63", k:K.b7, type:"single", v:"q63_residence", title:L("Où vis-tu ?","¿Dónde vives?","Where do you live?"),
+    opts:[{c:"madrid", l:L("Madrid et sa région","Madrid y su región","Madrid area")}, {c:"espagne", l:L("Ailleurs en Espagne","En otro lugar de España","Elsewhere in Spain")}, {c:"france", l:L("France","Francia","France")}, {c:"autre", l:L("Autre pays (précise)","Otro país (especifica)","Another country (please specify)"), o:true}]});
+  var OUI_NON2 = [{c:"oui", l:L("Oui","Sí","Yes")}, {c:"non", l:L("Non, merci","No, gracias","No, thank you")}];
+  add({key:"q64", k:K.b7, type:"text", v:"q64_commentaire", optional:true,
+    title:L("Un commentaire sur l'étude, ou quelque chose à ajouter sur le bien-être et la longévité ?","¿Algún comentario sobre el estudio, o algo que añadir sobre el bienestar y la longevidad?","Any comment on the study, or anything to add about well-being and longevity?"),
+    sub:L("Facultatif. Tout ce qui te semble utile est bienvenu.","Opcional. Todo lo que te parezca útil es bienvenido.","Optional. Anything you think is useful is welcome.")});
+  add({key:"q65", k:K.b7, type:"multi", v:"q65_suite", letter:true, dataLink:true, last:true,
+    title:L("Et maintenant, tu souhaites…","Y ahora, quieres…","And now, would you like to…"),
+    sub:L("Plusieurs réponses possibles. Tes réponses à l'étude restent anonymes et séparées de tes coordonnées.","Varias respuestas posibles. Tus respuestas al estudio siguen siendo anónimas y separadas de tus datos de contacto.","Several answers possible. Your answers to the study stay anonymous and separate from your contact details."),
+    opts:[
+      {c:"synthese", l:L("Recevoir la synthèse de cette étude, et ta situation par rapport à l'ensemble des répondants","Recibir la síntesis de este estudio y tu situación en comparación con el conjunto de participantes","Receive the summary of this study, and where you stand compared with all respondents")},
+      {c:"suivi_projet", l:L("Être tenu{|e} au courant de l'évolution du projet","Que te mantengamos al tanto de la evolución del proyecto","Be kept up to date on how the project develops")},
+      {c:"pilote", l:L("Être contacté{|e} si un premier groupe pilote se lance (sans engagement)","Que te contactemos si se pone en marcha un primer grupo piloto (sin compromiso)","Be contacted if a first pilot group is launched (no commitment)")},
+      {c:"entretien", l:L("Un échange de 20 minutes pour approfondir tes réponses","Una conversación de 20 minutos para profundizar en tus respuestas","A 20-minute conversation to explore your answers further")},
+      {c:"non", l:L("Rien de tout cela, merci","Nada de esto, gracias","None of these, thank you"), x:true}],
+    extra:{whenAny:true, fields:[
+      {v:"contact_email", type:"email", req:true, l:UI.email},
+      {v:"contact_telephone", type:"tel", req:false, l:L("Ton téléphone (facultatif, pour l'échange ou le pilote)","Tu teléfono (opcional, para la conversación o el piloto)","Your phone (optional, for the conversation or the pilot)")},
+      {v:"consentement_contact", type:"check", req:true, l:L("J'accepte que mes coordonnées soient utilisées pour ce que j'ai coché ci-dessus.","Acepto que mis datos de contacto se utilicen para lo que he marcado arriba.","I agree to my contact details being used for what I ticked above.")}]}});
+
+  // écrans de pause entre les étapes
+  var out = [], seen = {};
+  s.forEach(function(st){
+    var b = blocOf(st);
+    if (b && ["b3","b4","b5","b7"].indexOf(b) >= 0 && !seen[b]) { seen[b] = true; out.push({key:"pause_" + b, type:"pause", bloc:b}); }
+    if (b) seen[b] = true;
+    out.push(st);
+  });
+  return out;
+}
+function blocOf(st){ if (!st.k) return null; for (var b in K) if (K[b] === st.k) return b; return null; }
+
+/* ---------- lettre avant l'e-mail ---------- */
+var LETTRE = [
+  L("Je te remercie infiniment d'avoir pris le temps d'aller au bout de cette étude.","Te agradezco de corazón que te hayas tomado el tiempo de llegar hasta el final de este estudio.","Thank you so much for taking the time to complete this study."),
+  L("J'accompagne depuis de nombreuses années des dirigeants et des entrepreneurs, et j'ai animé de nombreuses communautés business. Si l'accompagnement sur les dimensions business et leadership est aujourd'hui bien ancré, j'ai constaté que ce n'est pas encore suffisamment le cas sur les dimensions du bien-être et de la longévité, sur lesquelles on est en réaction et non en prévention.",
+    "Desde hace muchos años acompaño a directivos y emprendedores, y he dinamizado numerosas comunidades de negocio. Si el acompañamiento en las dimensiones de negocio y liderazgo está hoy bien asentado, he constatado que todavía no ocurre lo mismo con el bienestar y la longevidad, ámbitos en los que reaccionamos en lugar de prevenir.",
+    "For many years I have supported leaders and entrepreneurs, and I have run many business communities. While support on business and leadership is now well established, I have seen that this is not yet the case for well-being and longevity, where we react rather than prevent."),
+  L("Or si un dirigeant, ou un leader quel qu'il soit, ne prend pas suffisamment soin de son corps et de son esprit, non seulement il se met en danger, mais il y met aussi sa famille et son entreprise ou son équipe.",
+    "Y si un directivo, o cualquier líder, no cuida lo suficiente su cuerpo y su mente, no solo se pone en riesgo a sí mismo, sino también a su familia y a su empresa o su equipo.",
+    "Yet if a leader, whoever they are, doesn't take enough care of their body and mind, they put not only themselves at risk, but also their family and their company or team."),
+  L("J'espère, grâce à tes réponses, pouvoir proposer la meilleure solution possible pour y remédier, et permettre à chacun de vivre mieux plus longtemps.",
+    "Espero, gracias a tus respuestas, poder proponer la mejor solución posible para remediarlo, y que cada uno pueda vivir mejor durante más tiempo.",
+    "Thanks to your answers, I hope to offer the best possible solution to address this, so that everyone can live better for longer.")
+];
+
+/* ---------- illustrations des pauses ---------- */
+var ILLU = {
+  b2:'<svg viewBox="0 0 240 140" aria-hidden="true"><circle cx="120" cy="70" r="60" style="fill:var(--soft)"/><circle cx="120" cy="70" r="42" style="fill:none;stroke:var(--t3);stroke-width:2"/><circle cx="120" cy="70" r="26" style="fill:none;stroke:var(--t3);stroke-width:2;opacity:.7"/><circle cx="120" cy="70" r="10" style="fill:var(--accent)"/></svg>',
+  b3:'<svg viewBox="0 0 240 140" aria-hidden="true"><circle cx="160" cy="52" r="20" style="fill:var(--t2)"/><path d="M0 110 Q60 62 120 98 T240 88 V140 H0Z" style="fill:var(--t3);opacity:.6"/><path d="M0 124 Q80 92 150 118 T240 112 V140 H0Z" style="fill:var(--accent);opacity:.8"/></svg>',
+  b4:'<svg viewBox="0 0 240 140" aria-hidden="true"><path d="M120 18 C170 38 182 92 120 124 C58 92 70 38 120 18Z" style="fill:var(--t3);opacity:.75"/><path d="M120 28 V120" style="stroke:var(--accent);stroke-width:2.5;fill:none"/><path d="M120 62 L146 46 M120 84 L94 66 M120 102 L142 90" style="stroke:var(--accent);stroke-width:2;fill:none"/></svg>',
+  b5:'<svg viewBox="0 0 240 140" aria-hidden="true"><ellipse cx="120" cy="120" rx="62" ry="13" style="fill:var(--t3);opacity:.9"/><ellipse cx="120" cy="96" rx="46" ry="12" style="fill:var(--t2)"/><ellipse cx="120" cy="75" rx="34" ry="11" style="fill:var(--t3)"/><ellipse cx="120" cy="56" rx="22" ry="9" style="fill:var(--accent);opacity:.85"/></svg>',
+  b6:'<svg viewBox="0 0 240 140" aria-hidden="true"><path d="M0 60 Q30 44 60 60 T120 60 T180 60 T240 60" style="fill:none;stroke:var(--t3);stroke-width:3"/><path d="M0 84 Q30 68 60 84 T120 84 T180 84 T240 84" style="fill:none;stroke:var(--accent);stroke-width:3;opacity:.8"/><path d="M0 108 Q30 92 60 108 T120 108 T180 108 T240 108" style="fill:none;stroke:var(--t2);stroke-width:3"/></svg>',
+  b7:'<svg viewBox="0 0 240 140" aria-hidden="true"><rect x="0" y="0" width="240" height="140" rx="18" style="fill:var(--soft)"/><circle cx="120" cy="96" r="30" style="fill:var(--t2)"/><rect x="0" y="96" width="240" height="44" style="fill:var(--t3);opacity:.7"/><path d="M40 118 H200" style="stroke:var(--accent);stroke-width:2;opacity:.6"/></svg>'
+};
+
+/* ---------- affichage ---------- */
+var app = document.getElementById("app");
+function el(tag, cls, text){ var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+function md(t, cls){ var d = el("p", cls); t.split("**").forEach(function(part, i){ d.appendChild(i % 2 ? el("strong", null, part) : document.createTextNode(part)); }); return d; }
+function visible(){ return buildSteps().filter(function(x){ return x.type !== "auto"; }); }
+function stepByKey(k){ var v = visible(); for (var i = 0; i < v.length; i++) if (v[i].key === k) return v[i]; }
+function qLabel(key){ return key.replace(/^q0?/, "Q").replace(/_.*/, function(m){ return " " + m.slice(1); }); }
+
+function progressPct(steps, idx){
+  var nb7 = steps.filter(function(x){ return blocOf(x) === "b7"; }).length || 1;
+  function w(x){ return blocOf(x) === "b7" ? 4 / nb7 : 1; }
+  var tot = 0, before = 0;
+  steps.forEach(function(x, i){ tot += w(x); if (i < idx) before += w(x); });
+  var p = tot ? before / tot : 0;
+  return Math.min(99, Math.round((1 - Math.pow(1 - p, 1.2)) * 100));
+}
+function render(){
+  document.documentElement.lang = lang;
+  app.innerHTML = "";
+  if (VIEW) return VIEWS[VIEW]();
+  if (done) return renderEnd();
+  var steps = visible();
+  var idx = 0; for (var i = 0; i < steps.length; i++) if (steps[i].key === cur) idx = i;
+  var st = steps[idx];
+  document.querySelector("#bar>div").style.width = progressPct(steps, idx) + "%";
+  if (st.type === "pause") return renderPause(st);
+  var kick = null;
+  if (st.k || TEST) {
+    kick = el("p", "kicker");
+    if (TEST && /^q\d/.test(st.key)) kick.appendChild(el("span", "qnum", qLabel(st.key)));
+    if (st.k) kick.appendChild(document.createTextNode(tx(st.k) + (st.part ? " · " + tx(st.part) : "")));
+    app.appendChild(kick);
+  }
+  if (st.letter) {
+    var lt = el("div", "letter");
+    LETTRE.forEach(function(p){ lt.appendChild(md(tx(p))); });
+    lt.appendChild(el("p", "sign", "Estelle"));
+    app.appendChild(lt);
+  }
+  if (st.grp) app.appendChild(el("p", "grpbadge", tx(st.grp)));
+  var title = st.titleAll || (st.title ? tx(st.title) : "");
+  if (title) app.appendChild(el(st.type === "screen" ? "h1" : "h2", null, title));
+  var hint = st.sub ? tx(st.sub) : (st.type === "multi" && !st.max ? tx(UI.multi) : "");
+  if (hint) app.appendChild(el("p", "sub", hint));
+  if (st.recap) {
+    var box = el("div", "item recap");
+    if (st.recap.text) box.appendChild(el("p", null, tx(st.recap.text)));
+    if (st.recap.items.length) {
+      box.appendChild(el("p", "lbl", tx(st.recap.label)));
+      var ul = el("ul"); st.recap.items.forEach(function(i){ ul.appendChild(el("li", null, tx(i))); }); box.appendChild(ul);
+    }
+    app.appendChild(box);
+  }
+  var err = el("div", "err"); err.id = "err"; app.appendChild(err);
+  var body = el("div"); body.id = "body"; app.appendChild(body);
+  R[st.type](st, body);
+  var isCards = isCardType(st.type);
+  var nav = el("div", "nav");
+  var canBack = hist.length || (isCards && cardIdx(st) > 0);
+  var back = el("button", "link", canBack ? "← " + tx(UI.back) : "");
+  back.type = "button"; back.dataset.act = "back";
+  if (!canBack) back.style.visibility = "hidden";
+  back.onclick = goBack;
+  nav.appendChild(back);
+  if (!isCards || allAnswered(st)) {
+    var nx = el("button", "btn", tx(st.last ? UI.submit : (st.button || UI.next)));
+    nx.type = "button"; nx.dataset.act = "next"; nx.id = "nextBtn";
+    nx.onclick = goNext;
+    nav.appendChild(nx);
+  }
+  app.appendChild(nav);
+  if (st.small) app.appendChild(el("p", "small", tx(st.small)));
+  if (st.dataLink) app.appendChild(dataLinkEl());
+  if (idx > 2 && !st.last) {
+    var later = el("button", "link later", tx(UI.later)); later.type = "button"; later.dataset.act = "later";
+    later.onclick = function(){ VIEW = "reprise"; render(); window.scrollTo(0, 0); };
+    app.appendChild(later);
+  }
+}
+function dataLinkEl(){
+  var a = el("button", "link later", tx(UI.data)); a.type = "button"; a.dataset.act = "donnees";
+  a.onclick = function(){ VIEW = "donnees"; render(); window.scrollTo(0, 0); };
+  return a;
+}
+function renderPause(st){
+  var n = BLOCS.indexOf(st.bloc) + 1;
+  var box = el("div", "pause");
+  var ill = el("div"); ill.innerHTML = ILLU[st.ill || st.bloc] || ""; box.appendChild(ill);
+  box.appendChild(el("p", "step", tx(L("Étape " + n + " sur 7", "Etapa " + n + " de 7", "Step " + n + " of 7")) + " · " + tx(K[st.bloc])));
+  box.appendChild(el("h1", null, tx(PAUSES[st.pk || st.bloc].t)));
+  box.appendChild(el("p", "sub", pauseBody(st.pk || st.bloc)));
+  var nav = el("div", "nav");
+  var nx = el("button", "btn", tx(UI.next)); nx.type = "button"; nx.dataset.act = "next"; nx.id = "nextBtn"; nx.onclick = goNext;
+  nav.appendChild(nx); box.appendChild(nav);
+  app.appendChild(box);
+}
+
+/* cartes : une affirmation ou un item à la fois */
+function lc1(t){ return t ? t.charAt(0).toLowerCase() + t.slice(1) : t; }
+function isCardType(t){ return t === "gridScale" || t === "gridChecks" || t === "gridCombo"; }
+function itemsOf(st){ return st.type === "gridChecks" ? st.rows : st.items; }
+function answered(st, it){
+  var v = S[st.v + "__" + it.c];
+  if (st.type === "gridCombo") return v != null && v !== "" && arr(S[st.v2 + "__" + it.c]).length > 0;
+  return st.type === "gridChecks" ? arr(v).length > 0 : (v != null && v !== "");
+}
+function allAnswered(st){ return itemsOf(st).every(function(it){ return answered(st, it); }); }
+function cardIdx(st){
+  var items = itemsOf(st);
+  if (CARD[st.key] == null) {
+    var first = -1; for (var i = 0; i < items.length; i++) if (!answered(st, items[i])) { first = i; break; }
+    CARD[st.key] = first >= 0 ? first : items.length - 1;
+  }
+  return Math.max(0, Math.min(items.length - 1, CARD[st.key]));
+}
+function nextCard(st){
+  var items = itemsOf(st), i = cardIdx(st);
+  if (i < items.length - 1) { CARD[st.key] = i + 1; render(); }
+  else if (allAnswered(st)) goNext();
+  else { var f = 0; while (answered(st, items[f])) f++; CARD[st.key] = f; render(); }
+}
+function cardFrame(st, b, inner){
+  var items = itemsOf(st), i = cardIdx(st), it = items[i];
+  var top = el("div", "cardtop");
+  var dots = el("div", "dots");
+  items.forEach(function(x, j){
+    var d = el("button", (answered(st, x) ? "ok" : "") + (j === i ? " cur" : "")); d.type = "button";
+    d.setAttribute("aria-label", (j + 1) + " / " + items.length);
+    d.onclick = function(){ CARD[st.key] = j; render(); };
+    dots.appendChild(d);
+  });
+  top.appendChild(dots); top.appendChild(el("span", "count", (i + 1) + " / " + items.length));
+  b.appendChild(top);
+  var cid = st.key + ":" + i;
+  var card = el("div", "card" + (cid !== LASTCARD ? " anim" : "")); card.dataset.item = it.c; LASTCARD = cid;
+  card.appendChild(el("div", "cardlbl", tx(it.l)));
+  inner(card, it, st.v + "__" + it.c);
+  b.appendChild(card);
+}
+var BUSY = false, LASTCARD = "";
+// on marque le choix sur place (sans redessiner l'écran), puis la carte suivante arrive
+function pickThenNext(st, key, val, btn){
+  if (BUSY) return;
+  S[key] = val; BUSY = true;
+  if (btn && btn.parentNode) {
+    btn.parentNode.querySelectorAll("button").forEach(function(x){ x.classList.remove("sel"); });
+    btn.classList.add("sel");
+    var dot = document.querySelector(".dots button.cur"); if (dot) dot.classList.add("ok");
+  } else render();
+  setTimeout(function(){ BUSY = false; if (cur === st.key && !VIEW) nextCard(stepByKey(cur)); }, 260);
+}
+
+var R = {
+  screen: function(st, b){
+    (st.body || []).forEach(function(p){ b.appendChild(md(tx(p))); });
+    (st.fields || []).forEach(function(f){ b.appendChild(field(f)); });
+  },
+  single: function(st, b){
+    var box = el("div", "opts"); box.dataset.item = "opts";
+    st.opts.forEach(function(o){
+      var btn = el("button", "opt" + (S[st.v] === o.c ? " sel" : "")); btn.type = "button"; btn.dataset.opt = o.c;
+      btn.appendChild(el("span", "box")); btn.appendChild(el("span", null, typeof o.l === "string" ? o.l : tx(o.l)));
+      btn.onclick = function(){
+        S[st.v] = o.c;
+        if (st.v === "q00_langue") lang = o.c;
+        render();
+        if (!o.o && !(st.extra && st.extra.when === o.c) && !st.last) autoNext(st.key);
+      };
+      box.appendChild(btn);
+      if (o.o && S[st.v] === o.c) box.appendChild(otherInput(st.v + "__autre"));
+    });
+    b.appendChild(box);
+    if (st.extra && S[st.v] === st.extra.when) st.extra.fields.forEach(function(f){ b.appendChild(field(f)); });
+  },
+  multi: function(st, b){
+    var box = el("div", "opts"); box.dataset.item = "opts"; var val = arr(S[st.v]);
+    st.opts.forEach(function(o){
+      if (o.h) { box.appendChild(el("div", "grp", tx(o.h))); return; }
+      var btn = el("button", "opt multi" + (val.indexOf(o.c) >= 0 ? " sel" : "")); btn.type = "button"; btn.dataset.opt = o.c;
+      btn.appendChild(el("span", "box")); btn.appendChild(el("span", null, tx(o.l)));
+      btn.onclick = function(){
+        var cv = arr(S[st.v]);
+        if (st.max && !o.x && cv.indexOf(o.c) < 0 && cv.length >= st.max) return;
+        S[st.v] = toggle(cv, o, st.opts); render();
+      };
+      if (st.max && val.length >= st.max && val.indexOf(o.c) < 0) btn.className += " off";
+      box.appendChild(btn);
+      if (o.o && val.indexOf(o.c) >= 0) box.appendChild(otherInput(otherKey(st, o)));
+    });
+    b.appendChild(box);
+    if (st.extra && st.extra.whenAny && val.some(function(c){ return c !== "non"; })) st.extra.fields.forEach(function(f){ b.appendChild(field(f)); });
+  },
+  scale: function(st, b){ b.appendChild(scaleRow(st, st.v, function(v){ S[st.v] = v; render(); autoNext(st.key); })); },
+  rank: function(st, b){
+    var codes = st.opts.map(function(o){ return o.c; });
+    var val = arr(S[st.v]).filter(function(c){ return codes.indexOf(c) >= 0; }); S[st.v] = val;
+    var ordered = val.map(function(c){ return labelOf(st.opts, c); }).concat(st.opts.filter(function(o){ return val.indexOf(o.c) < 0; }));
+    var box = el("div", "opts"); box.dataset.item = "rank";
+    ordered.forEach(function(o){
+      var pos = val.indexOf(o.c);
+      var btn = el("button", "opt rank" + (pos >= 0 ? " sel" : (val.length >= st.max ? " off" : ""))); btn.type = "button"; btn.dataset.opt = o.c;
+      btn.appendChild(el("span", "num", pos >= 0 ? String(pos + 1) : ""));
+      btn.appendChild(el("span", null, tx(o.l)));
+      btn.onclick = function(){
+        var v = arr(S[st.v]); var i = v.indexOf(o.c);
+        if (i >= 0) v.splice(i, 1); else if (v.length < st.max) v.push(o.c); else return;
+        S[st.v] = v; render();
+      };
+      box.appendChild(btn);
+    });
+    b.appendChild(box);
+    b.appendChild(el("p", "rankhint", tx(UI.tapRank)));
+    if (val.length) {
+      var rs = el("button", "link", "↺ " + tx(L("Recommencer le classement","Reiniciar la clasificación","Start the ranking again")));
+      rs.type = "button"; rs.onclick = function(){ S[st.v] = []; render(); };
+      b.appendChild(rs);
+    }
+  },
+  gridScale: function(st, b){
+    cardFrame(st, b, function(card, it, key){
+      var chs = it.choices || st.choices;
+      if (chs) {
+        var t = el("div", "tones");
+        chs.forEach(function(ch){
+          var btn = el("button", S[key] === ch.c ? "sel" : ""); btn.type = "button"; btn.dataset.val = ch.c;
+          btn.appendChild(el("span", null, tx(ch.l)));
+          btn.onclick = function(){ pickThenNext(st, key, ch.c, btn); };
+          t.appendChild(btn);
+        });
+        card.appendChild(t);
+      } else if (st.labels) {
+        var t2 = el("div", "tones");
+        st.labels.forEach(function(lb, j){
+          var v = st.min + j;
+          var btn = el("button", S[key] === v ? "sel" : ""); btn.type = "button"; btn.dataset.val = v;
+          var sw = el("span", "sw"); sw.style.background = AGREE_TONES[j]; btn.appendChild(sw);
+          btn.appendChild(el("span", null, tx(lb)));
+          btn.onclick = function(){ pickThenNext(st, key, v, btn); };
+          t2.appendChild(btn);
+        });
+        card.appendChild(t2);
+      } else if (st.slider) {
+        card.appendChild(sliderRow(st, key, function(v, btn){ pickThenNext(st, key, v, btn); }, it));
+      } else {
+        card.appendChild(scaleRow(st, key, function(v, btn){ pickThenNext(st, key, v, btn); }, it));
+      }
+    });
+  },
+  gridCombo: function(st, b){
+    cardFrame(st, b, function(card, it, key){
+      card.appendChild(scaleRow(st, key, function(v){ S[key] = v; render(); }, it));
+      if (S[key] == null) return;
+      var akey = st.v2 + "__" + it.c, val = arr(S[akey]);
+      var q = el("div", "cardq");
+      q.textContent = {fr:"Fais-tu quelque chose de concret pour ", es:"¿Haces algo concreto para ", en:"Are you doing anything concrete to "}[lang] + lc1(gx(it.b[lang])) + (lang === "fr" ? " ?" : "?");
+      card.appendChild(q);
+      var box = el("div", "opts");
+      st.cols.forEach(function(c){
+        var btn = el("button", "opt multi" + (val.indexOf(c.c) >= 0 ? " sel" : "")); btn.type = "button"; btn.dataset.opt = c.c;
+        btn.appendChild(el("span", "box")); btn.appendChild(el("span", null, tx(c.l)));
+        btn.onclick = function(){
+          var nv = toggle(arr(S[akey]), c, st.cols);
+          S[akey] = nv;
+          if (c.x && nv.indexOf(c.c) >= 0) { if (BUSY) return; BUSY = true; render(); setTimeout(function(){ BUSY = false; if (cur === st.key && !VIEW) nextCard(stepByKey(cur)); }, 260); return; }
+          render();
+        };
+        box.appendChild(btn);
+      });
+      card.appendChild(box);
+      var cn = el("div", "cardnav");
+      cn.appendChild(el("span"));
+      var nb = el("button", "btn ghost", tx(UI.nextItem) + " →"); nb.type = "button"; nb.dataset.act = "nextcard";
+      nb.disabled = !val.length; nb.onclick = function(){ nextCard(st); };
+      cn.appendChild(nb); card.appendChild(cn);
+    });
+  },
+  gridChecks: function(st, b){
+    cardFrame(st, b, function(card, it, key){
+      var val = arr(S[key]);
+      var box = el("div", "opts");
+      st.cols.forEach(function(c){
+        var btn = el("button", "opt multi" + (val.indexOf(c.c) >= 0 ? " sel" : "")); btn.type = "button"; btn.dataset.opt = c.c;
+        btn.appendChild(el("span", "box")); btn.appendChild(el("span", null, tx(c.l)));
+        btn.onclick = function(){
+          var nv = toggle(arr(S[key]), c, st.cols);
+          if (c.x && nv.indexOf(c.c) >= 0) return pickThenNext(st, key, nv, btn);
+          S[key] = nv; render();
+        };
+        box.appendChild(btn);
+      });
+      card.appendChild(box);
+      var cn = el("div", "cardnav");
+      cn.appendChild(el("span"));
+      var nb = el("button", "btn ghost", tx(UI.nextItem) + " →"); nb.type = "button"; nb.dataset.act = "nextcard";
+      nb.disabled = !val.length; nb.onclick = function(){ nextCard(st); };
+      cn.appendChild(nb); card.appendChild(cn);
+    });
+  },
+  chips: function(st, b){
+    if (S[st.v] === undefined && st.preset && st.preset.length) S[st.v] = st.preset.slice();
+    var val = arr(S[st.v]); var box = el("div", "pillset"); box.dataset.item = "chips";
+    var wrap = null;
+    st.opts.forEach(function(o){
+      if (o.h) { box.appendChild(el("div", "grp", tx(o.h))); wrap = el("div", "pills"); box.appendChild(wrap); return; }
+      if (!wrap || o.x) { wrap = el("div", "pills"); box.appendChild(wrap); }
+      var on = val.indexOf(o.c) >= 0;
+      var btn = el("button", "pill" + (on ? " sel" : "") + (o.x ? " none" : ""), (on ? "✓ " : "") + tx(o.l));
+      btn.type = "button"; btn.dataset.opt = o.c; btn.setAttribute("aria-pressed", on ? "true" : "false");
+      if (st.max && !on && !o.x && val.length >= st.max) btn.className += " off";
+      btn.onclick = function(){
+        var cv = arr(S[st.v]);
+        if (st.max && !o.x && cv.indexOf(o.c) < 0 && cv.length >= st.max) return;
+        S[st.v] = toggle(cv, o, st.opts); render();
+      };
+      wrap.appendChild(btn);
+    });
+    b.appendChild(box);
+    if (st.otherField) {
+      var f = el("div", "field"); f.appendChild(el("label", null, tx(st.otherField.l)));
+      var i = el("input"); i.type = "text"; i.maxLength = 300; i.value = S[st.otherField.v] || ""; i.dataset.other = st.otherField.v;
+      i.oninput = function(){ S[st.otherField.v] = i.value; };
+      f.appendChild(i); b.appendChild(f);
+    }
+  },
+  text: function(st, b){
+    var ta = el(st.short ? "input" : "textarea"); if (st.short) ta.type = "text";
+    ta.placeholder = tx(UI.optional); ta.value = S[st.v] || ""; ta.maxLength = 2000; ta.dataset.text = st.v;
+    ta.oninput = function(){ S[st.v] = ta.value; };
+    b.appendChild(ta);
+    b.appendChild(dictation(ta, st.v));
+    if (st.check) b.appendChild(field({v:st.check.v, type:"check", req:false, l:st.check.l}));
+  }
+};
+
+/* dictée vocale (Chrome, Edge, Safari) ; sinon, le micro du clavier */
+var REC = null;
+function dictation(ta, v){
+  var wrap = el("div", "dict");
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR || GAS) { wrap.appendChild(el("span", "tip", tx(UI.dictTipKb))); return wrap; }
+  var btn = el("button", "mic"); btn.type = "button";
+  btn.appendChild(el("span", "dotrec")); var lbl = el("span", null, tx(UI.dictate)); btn.appendChild(lbl);
+  btn.onclick = function(){
+    if (REC) { REC.stop(); return; }
+    var r = new SR(); REC = r;
+    r.lang = lang === "es" ? "es-ES" : (lang === "en" ? "en-GB" : "fr-FR");
+    r.continuous = true; r.interimResults = false;
+    var base = ta.value ? ta.value.replace(/\s*$/, " ") : "";
+    r.onresult = function(e){
+      var t = ""; for (var i = 0; i < e.results.length; i++) t += e.results[i][0].transcript;
+      ta.value = (base + t).trimStart(); S[v] = ta.value;
+    };
+    r.onend = function(){ REC = null; btn.classList.remove("on"); lbl.textContent = tx(UI.dictate); };
+    r.onerror = r.onend;
+    try { r.start(); btn.classList.add("on"); lbl.textContent = tx(UI.stopDictate); } catch (e) { REC = null; }
+  };
+  wrap.appendChild(btn);
+  wrap.appendChild(el("span", "tip", tx(UI.dictTip)));
+  return wrap;
+}
+
+function toggle(val, o, all){
+  val = val.slice();
+  var i = val.indexOf(o.c);
+  if (i >= 0) { val.splice(i, 1); return val; }
+  if (o.x) return [o.c];
+  var excl = all.filter(function(a){ return a.x; }).map(function(a){ return a.c; });
+  return val.filter(function(c){ return excl.indexOf(c) < 0; }).concat([o.c]);
+}
+function otherKey(st, o){ return /^autre_/.test(o.c) && o.c !== "autre_pro" ? st.v + "__" + o.c : st.v + "__autre"; }
+function otherInput(v){
+  var i = el("input", "other"); i.type = "text"; i.placeholder = tx(UI.specify); i.value = S[v] || ""; i.maxLength = 300;
+  i.oninput = function(){ S[v] = i.value; }; i.dataset.other = v;
+  return i;
+}
+// curseur sans chiffres : on se place plus ou moins près de l'une ou l'autre proposition
+function sliderRow(st, key, onPick, it){
+  var wrap = el("div", "slider");
+  var ends = el("div", "sl-ends");
+  ends.appendChild(el("span", null, tx(it.lo))); ends.appendChild(el("span", null, tx(it.hi)));
+  wrap.appendChild(ends);
+  var track = el("div", "sl-track");
+  for (var v = st.min; v <= st.max; v++) (function(v){
+    var btn = el("button", "sl-dot" + (S[key] === v ? " sel" : "")); btn.type = "button"; btn.dataset.val = v;
+    btn.setAttribute("aria-label", v + " / " + st.max);
+    btn.onclick = function(){ onPick(v, btn); };
+    track.appendChild(btn);
+  })(v);
+  wrap.appendChild(track);
+  return wrap;
+}
+function scaleRow(st, key, onPick, it){
+  var wrap = el("div");
+  var n = st.max - st.min + 1;
+  var row = el("div", "scale");
+  row.style.gridTemplateColumns = "repeat(" + n + ",1fr)";
+  for (var v = st.min; v <= st.max; v++) (function(v){
+    var btn = el("button", S[key] === v ? "sel" : "", String(v));
+    btn.type = "button"; btn.dataset.val = v;
+    btn.onclick = function(){ onPick(v, btn); };
+    row.appendChild(btn);
+  })(v);
+  wrap.appendChild(row);
+  var lo = (it && it.lo) || st.lo, hi = (it && it.hi) || st.hi;
+  if (lo) { var a = el("div", "anch"); a.appendChild(el("span", null, st.min + " · " + tx(lo))); a.appendChild(el("span", null, st.max + " · " + tx(hi))); wrap.appendChild(a); }
+  return wrap;
+}
+function field(f){
+  if (f.type === "check") {
+    var lab = el("label", "check"); lab.dataset.item = f.v; var c = el("input"); c.type = "checkbox"; c.checked = S[f.v] === "oui"; c.dataset.field = f.v;
+    c.onchange = function(){ S[f.v] = c.checked ? "oui" : ""; };
+    lab.appendChild(c); lab.appendChild(el("span", null, tx(f.l))); return lab;
+  }
+  var d = el("div", "field"); d.appendChild(el("label", null, tx(f.l)));
+  var i = el("input"); i.type = f.type; i.value = S[f.v] || ""; i.maxLength = 200; i.dataset.field = f.v;
+  if (f.type === "email") i.autocomplete = "email";
+  i.oninput = function(){ S[f.v] = i.value.trim(); };
+  d.appendChild(i); return d;
+}
+
+function checkFields(fields){
+  for (var i = 0; i < fields.length; i++) {
+    var f = fields[i];
+    if (f.type === "email" && f.req && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(S[f.v] || "")) return {e:UI.reqEmail, item:null};
+    if (f.type === "check" && f.req && S[f.v] !== "oui") return {e:UI.reqConsent, item:f.v};
+  }
+  return null;
+}
+function validate(st){
+  if (st.type === "pause" || st.type === "text") return null;
+  if (st.type === "screen") { var r = checkFields(st.fields || []); if (r && r.item) markMissing([r.item]); return r ? r.e : null; }
+  if (st.type === "single" || st.type === "scale") {
+    if (S[st.v] == null || S[st.v] === "") { markMissing(["opts"]); return UI.req; }
+    if (st.extra && S[st.v] === st.extra.when) { var r2 = checkFields(st.extra.fields); if (r2 && r2.item) markMissing([r2.item]); return r2 ? r2.e : null; }
+    return null;
+  }
+  if (st.type === "multi") {
+    var okm = arr(S[st.v]).length > 0; markMissing(okm ? [] : ["opts"]);
+    if (!okm) return UI.req;
+    if (st.extra && st.extra.whenAny && arr(S[st.v]).some(function(c){ return c !== "non"; })) { var r3 = checkFields(st.extra.fields); if (r3 && r3.item) markMissing([r3.item]); return r3 ? r3.e : null; }
+    return null;
+  }
+  if (st.type === "chips") {
+    var okc = arr(S[st.v]).length > 0 || (st.allowOther && st.otherField && (S[st.otherField.v] || "").trim());
+    markMissing(okc ? [] : ["chips"]);
+    return okc ? null : L("Merci de toucher au moins une réponse, ou « Aucun ».","Por favor, toca al menos una respuesta, o «Ninguno».","Please tap at least one answer, or “None”.");
+  }
+  if (st.type === "rank") {
+    var ok = arr(S[st.v]).length >= st.max;
+    markMissing(ok ? [] : ["rank"]);
+    return ok ? null : (st.max < st.opts.length ? L("Merci de choisir tes 3 réponses les plus importantes.","Por favor, elige tus 3 respuestas más importantes.","Please choose your 3 most important answers.") : L("Merci de classer toutes les réponses.","Por favor, clasifica todas las respuestas.","Please rank all the answers."));
+  }
+  if (isCardType(st.type)) {
+    var items = itemsOf(st);
+    for (var i = 0; i < items.length; i++) if (!answered(st, items[i])) { CARD[st.key] = i; return UI.reqCards; }
+    return null;
+  }
+  return null;
+}
+function markMissing(codes){
+  document.querySelectorAll("[data-item]").forEach(function(c){ c.classList.toggle("miss-outline", codes.indexOf(c.dataset.item) >= 0); c.classList.toggle("miss", codes.indexOf(c.dataset.item) >= 0); });
+}
+
+function goNext(){
+  var st = stepByKey(cur);
+  var e = validate(st);
+  if (e) {
+    if (isCardType(st.type)) render();
+    var er = document.getElementById("err"); er.textContent = tx(e);
+    var target = document.querySelector(".miss") || document.getElementById("err");
+    if (target && target.scrollIntoView) target.scrollIntoView({behavior:"smooth", block:"center"});
+    return;
+  }
+  tick();
+  if (st.last) return submit();
+  var steps = visible();
+  var idx = steps.map(function(x){ return x.key; }).indexOf(cur);
+  hist.push(cur);
+  cur = steps[idx + 1].key;
+  save(false);
+  render(); window.scrollTo(0, 0);
+}
+var AUTO_T = null;
+function autoNext(key){
+  clearTimeout(AUTO_T);
+  AUTO_T = setTimeout(function(){ if (cur === key && !VIEW && !done) goNext(); }, 320);
+}
+function goBack(){
+  var st = stepByKey(cur);
+  if (st && isCardType(st.type) && cardIdx(st) > 0) { CARD[st.key] = cardIdx(st) - 1; render(); return; }
+  var keys = visible().map(function(x){ return x.key; });
+  while (hist.length) { var k = hist.pop(); if (keys.indexOf(k) >= 0) { cur = k; break; } }
+  render(); window.scrollTo(0, 0);
+}
+
+/* ---------- vues annexes ---------- */
+var VIEWS = {
+  donnees: function(){
+    var box = el("div", "legal");
+    box.appendChild(el("h1", null, tx(UI.data)));
+    DONNEES[lang === "es" ? "es" : (lang === "en" ? "en" : "fr")].forEach(function(b){
+      if (b.h) box.appendChild(el("h2", null, b.h));
+      if (b.p) box.appendChild(md(b.p));
+      if (b.ul) { var ul = el("ul"); b.ul.forEach(function(x){ ul.appendChild(el("li", null, gx(x))); }); box.appendChild(ul); }
+    });
+    app.appendChild(box);
+    var nav = el("div", "nav"); var bk = el("button", "btn", "← " + tx(UI.back)); bk.type = "button"; bk.dataset.act = "fermer";
+    bk.onclick = function(){ VIEW = null; render(); window.scrollTo(0, 0); }; nav.appendChild(bk); app.appendChild(nav);
+  },
+  reprise: function(){
+    app.appendChild(el("h1", null, tx(UI.later)));
+    app.appendChild(el("p", null, tx(L("Indique ton e-mail : je t'envoie un lien pour reprendre exactement là où tu en es. Le lien ne fonctionne qu'une fois et reste valable 30 jours.",
+      "Indica tu correo: te envío un enlace para continuar exactamente donde lo dejaste. El enlace solo funciona una vez y es válido durante 30 días.",
+      "Enter your email: I'll send you a link to pick up exactly where you left off. The link works once and is valid for 30 days."))));
+    var err = el("div", "err"); err.id = "err"; app.appendChild(err);
+    app.appendChild(field({v:"reprise_email", type:"email", l:UI.email}));
+    app.appendChild(field({v:"reprise_consentement", type:"check", l:L("J'accepte que mon e-mail soit utilisé uniquement pour m'envoyer ce lien. Il est effacé dès que le lien est utilisé, ou au bout de 30 jours.","Acepto que mi correo se utilice únicamente para enviarme este enlace. Se borra en cuanto se usa el enlace, o a los 30 días.","I agree to my email being used only to send me this link. It is deleted as soon as the link is used, or after 30 days.")}));
+    var nav = el("div", "nav");
+    var bk = el("button", "link", "← " + tx(L("Continuer maintenant","Seguir ahora","Continue now"))); bk.type = "button"; bk.dataset.act = "fermer";
+    bk.onclick = function(){ VIEW = null; render(); };
+    var send = el("button", "btn", tx(L("M'envoyer le lien","Enviarme el enlace","Send me the link"))); send.type = "button"; send.dataset.act = "envoyer_reprise";
+    send.onclick = function(){
+      var r = checkFields([{v:"reprise_email", type:"email", req:true}, {v:"reprise_consentement", type:"check", req:true}]);
+      if (r) { err.textContent = tx(r.e); return; }
+      send.disabled = true; send.textContent = tx(UI.sending);
+      api({action:"reprise_demande", email:S.reprise_email, langue:lang, id_reponse:META.id_reponse, etat:JSON.stringify(snapshot(true))}, function(e, res){
+        if (e || !res || !res.ok) { send.disabled = false; send.textContent = tx(L("M'envoyer le lien","Enviarme el enlace","Send me the link")); err.textContent = tx(L("L'e-mail n'a pas pu être envoyé. Réessaie dans un instant.","No se ha podido enviar el correo. Inténtalo de nuevo en un momento.","The email could not be sent. Please try again in a moment.")); return; }
+        delete S.reprise_email; delete S.reprise_consentement;
+        save(false); VIEW = "reprise_ok"; render();
+      });
+    };
+    nav.appendChild(bk); nav.appendChild(send); app.appendChild(nav);
+    app.appendChild(dataLinkEl());
+  },
+  reprise_ok: function(){
+    app.appendChild(el("h1", null, tx(L("C'est envoyé !","¡Enviado!","Sent!"))));
+    app.appendChild(el("p", null, tx(L("Regarde ta boîte mail (et tes spams). Tu peux fermer cette page : tes réponses sont gardées.","Revisa tu bandeja de entrada (y el spam). Puedes cerrar esta página: tus respuestas se guardan.","Check your inbox (and spam). You can close this page: your answers are saved."))));
+    var nav = el("div", "nav"); var bk = el("button", "btn ghost", tx(L("Continuer maintenant","Seguir ahora","Continue now"))); bk.type = "button";
+    bk.onclick = function(){ VIEW = null; render(); }; nav.appendChild(bk); app.appendChild(nav);
+  },
+  retour: function(){
+    app.appendChild(el("h1", null, tx(L("Bon retour !","¡Bienvenid{o|a} de nuevo!","Welcome back!"))));
+    app.appendChild(el("p", null, tx(L("Tu avais commencé cette étude sur cet appareil. Veux-tu reprendre là où tu t'étais arrêté{|e} ?","Habías empezado este estudio en este dispositivo. ¿Quieres continuar donde lo dejaste?","You had started this study on this device. Would you like to pick up where you left off?"))));
+    var nav = el("div", "nav");
+    var restart = el("button", "link", tx(L("Recommencer","Empezar de nuevo","Start again"))); restart.type = "button"; restart.dataset.act = "recommencer";
+    restart.onclick = restartFresh;
+    var go = el("button", "btn", tx(L("Reprendre","Continuar","Continue"))); go.type = "button"; go.dataset.act = "reprendre";
+    go.onclick = function(){ VIEW = null; render(); };
+    nav.appendChild(restart); nav.appendChild(go); app.appendChild(nav);
+  },
+  chargement: function(){ app.appendChild(el("p", "sub", tx(L("Chargement de tes réponses…","Cargando tus respuestas…","Loading your answers…")))); },
+  lien_invalide: function(){
+    app.appendChild(el("h1", null, tx(L("Ce lien n'est plus valable","Este enlace ya no es válido","This link is no longer valid"))));
+    app.appendChild(el("p", null, tx(L("Il a déjà été utilisé ou il a expiré. Tu peux recommencer l'étude, ou m'écrire à " + CONTACT + ".","Ya se ha utilizado o ha caducado. Puedes empezar de nuevo el estudio, o escribirme a " + CONTACT + ".","It has already been used or has expired. You can start the study again, or write to me at " + CONTACT + "."))));
+    var nav = el("div", "nav"); var go = el("button", "btn", tx(UI.start)); go.type = "button";
+    go.onclick = restartFresh; nav.appendChild(go); app.appendChild(nav);
+  }
+};
+
+/* ---------- données personnelles (à relire avant diffusion) ---------- */
+var DONNEES = {
+  fr:[
+    {p:"Cette étude est menée par **" + RESPONSABLE + "**, responsable du traitement. Contact : " + CONTACT + "."},
+    {h:"Ce qui est collecté", ul:["Tes réponses au questionnaire, identifiées seulement par un numéro tiré au hasard. Certaines portent sur ta santé et ton bien-être.","Ton e-mail et ton téléphone, uniquement si tu demandes la synthèse, acceptes un échange, souhaites suivre le projet ou être contacté{|e} pour un pilote, ou demandes un lien pour reprendre plus tard. Ils sont rangés à part de tes réponses."]},
+    {h:"Pourquoi", p:"Pour comprendre les habitudes de vie et les besoins des dirigeants, entrepreneurs et leaders, et présenter des résultats d'ensemble. Aucune réponse n'est présentée individuellement. La base légale est ton consentement, que tu donnes en cochant la case au début et que tu peux retirer à tout moment."},
+    {h:"Où sont tes données", p:"Elles sont enregistrées dans un tableur Google (Google Workspace). Google peut traiter des données hors de l'Union européenne, avec les garanties prévues par le RGPD (clauses contractuelles types). Elles ne sont ni vendues ni cédées."},
+    {h:"Combien de temps", ul:["Réponses : 12 mois au maximum, puis supprimées.","E-mail pour reprendre plus tard : effacé dès que le lien est utilisé, ou au bout de 30 jours.","E-mail et téléphone pour la synthèse ou l'échange : jusqu'à l'envoi de la synthèse ou la fin de l'étude.","E-mail pour être tenu{|e} au courant du projet, et e-mail et téléphone pour un pilote (si tu l'as accepté) : jusqu'à ce que tu demandes à les retirer, et au plus tard 3 ans après notre dernier échange."]},
+    {h:"Sur cet appareil", p:"Pour que tu puisses reprendre plus tard, ta progression est gardée dans ton navigateur (stockage local). Aucun cookie publicitaire ni outil de suivi n'est utilisé."},
+    {h:"Tes droits", p:"Tu peux demander l'accès à tes données, leur rectification ou leur effacement, t'opposer à leur utilisation ou retirer ton consentement en écrivant à " + CONTACT + ". Tu peux aussi saisir l'autorité de protection des données de ton pays : l'AEPD en Espagne (aepd.es) ou la CNIL en France (cnil.fr)."}
+  ],
+  es:[
+    {p:"Este estudio lo realiza **" + RESPONSABLE + "**, responsable del tratamiento. Contacto: " + CONTACT + "."},
+    {h:"Qué se recoge", ul:["Tus respuestas al cuestionario, identificadas solo por un número aleatorio. Algunas se refieren a tu salud y tu bienestar.","Tu correo y tu teléfono, solo si pides la síntesis, aceptas una conversación, quieres seguir el proyecto o que te contactemos para un piloto, o pides un enlace para continuar más tarde. Se guardan separados de tus respuestas."]},
+    {h:"Para qué", p:"Para comprender los hábitos de vida y las necesidades de directivos, emprendedores y líderes, y presentar resultados de conjunto. Ninguna respuesta se presenta de forma individual. La base legal es tu consentimiento, que das marcando la casilla al principio y que puedes retirar en cualquier momento."},
+    {h:"Dónde están tus datos", p:"Se guardan en una hoja de cálculo de Google (Google Workspace). Google puede tratar datos fuera de la Unión Europea, con las garantías previstas por el RGPD (cláusulas contractuales tipo). No se venden ni se ceden."},
+    {h:"Durante cuánto tiempo", ul:["Respuestas: 12 meses como máximo; después se borran.","Correo para continuar más tarde: se borra en cuanto se usa el enlace, o a los 30 días.","Correo y teléfono para la síntesis o la conversación: hasta el envío de la síntesis o el final del estudio.","Correo para recibir noticias del proyecto, y correo y teléfono para un piloto (si lo has aceptado): hasta que pidas que se retiren y, como máximo, 3 años después de nuestro último contacto."]},
+    {h:"En este dispositivo", p:"Para que puedas continuar más tarde, tu progreso se guarda en tu navegador (almacenamiento local). No se usan cookies publicitarias ni herramientas de seguimiento."},
+    {h:"Tus derechos", p:"Puedes pedir el acceso a tus datos, su rectificación o su supresión, oponerte a su uso o retirar tu consentimiento escribiendo a " + CONTACT + ". También puedes reclamar ante la autoridad de protección de datos de tu país: la AEPD en España (aepd.es) o la CNIL en Francia (cnil.fr)."}
+  ],
+  en:[
+    {p:"This study is run by **" + RESPONSABLE + "**, the data controller. Contact: " + CONTACT + "."},
+    {h:"What is collected", ul:["Your answers to the questionnaire, identified only by a random number. Some relate to your health and well-being.","Your email and phone number, only if you ask for the summary, agree to a conversation, want to follow the project or be contacted about a pilot, or ask for a link to finish later. They are stored separately from your answers."]},
+    {h:"Why", p:"To understand the lifestyle habits and needs of business leaders, entrepreneurs and leaders, and to report overall results. No answer is reported individually. The legal basis is your consent, which you give by ticking the box at the start and can withdraw at any time."},
+    {h:"Where your data is", p:"It is stored in a Google spreadsheet (Google Workspace). Google may process data outside the European Union, with the safeguards required by the GDPR (standard contractual clauses). It is never sold or shared."},
+    {h:"How long", ul:["Answers: 12 months at most, then deleted.","Email to finish later: deleted as soon as the link is used, or after 30 days.","Email and phone for the summary or the conversation: until the summary is sent or the study ends.","Email for project news, and email and phone for a pilot (if you agreed): until you ask for them to be removed, and at most 3 years after our last contact."]},
+    {h:"On this device", p:"So that you can finish later, your progress is kept in your browser (local storage). No advertising cookies or tracking tools are used."},
+    {h:"Your rights", p:"You can ask to access, correct or delete your data, object to its use or withdraw your consent by writing to " + CONTACT + ". You can also complain to your country's data protection authority: the AEPD in Spain (aepd.es) or the CNIL in France (cnil.fr)."}
+  ]
+};
+
+/* ---------- export et enregistrement ---------- */
+function exportRow(final){
+  var steps = buildSteps();
+  var row = {id_reponse:META.id_reponse, debut:META.debut, fin:final ? new Date().toISOString() : "",
+    duree_minutes:Math.round((Date.now() - Date.parse(META.debut)) / 6000) / 10, complet:final ? "oui" : "non",
+    duree_active_minutes:Math.round(activeMin() * 10) / 10, derniere_question_vue:cur, canal:META.canal, langue_lien:META.langue_lien, consentement_etude:S.consentement_etude || ""};
+  function put(k, v){ if (v == null || v === "") return; row[k] = Array.isArray(v) ? v.join(";") : v; }
+  var all30 = [], all31 = [];
+  steps.forEach(function(st){
+    if (st.type === "auto") { put(st.v, st.value); return; }
+    if (!st.v) return;
+    if (st.type === "single" || st.type === "scale") {
+      put(st.v, S[st.v]);
+      var o = st.opts && labelOf(st.opts, S[st.v]);
+      if (o && o.o) put(st.v + "__autre", S[st.v + "__autre"]);
+    } else if (st.type === "multi" || st.type === "chips") {
+      var val = arr(S[st.v] === undefined && st.preset ? st.preset : S[st.v]).filter(function(c){ return labelOf(st.opts, c); });
+      put(st.v, val);
+      st.opts.forEach(function(o2){ if (o2.o && val.indexOf(o2.c) >= 0) put(otherKey(st, o2), S[otherKey(st, o2)]); });
+      if (st.otherField) put(st.otherField.v, (S[st.otherField.v] || "").trim());
+      if (st.v.indexOf("q31_utilises__") === 0) all30 = all30.concat(val.filter(function(c){ return c !== "aucun"; }));
+      if (st.v.indexOf("q32_envie_essayer__") === 0) all31 = all31.concat(val.filter(function(c){ return c !== "aucun"; }));
+    } else if (isCardType(st.type)) {
+      itemsOf(st).forEach(function(it){ put(st.v + "__" + it.c, S[st.v + "__" + it.c]); if (st.v2) put(st.v2 + "__" + it.c, arr(S[st.v2 + "__" + it.c])); });
+    } else if (st.type === "rank") {
+      put(st.v, arr(S[st.v]));
+    } else if (st.type === "text") {
+      put(st.v, (S[st.v] || "").trim());
+      if (st.check) put(st.check.v, S[st.check.v]);
+    }
+  });
+  put("q31_utilises", all30); put("q32_envie_essayer", all31);
+  if (S.q37_interet_global >= 3) put("q42_formats", arr(S.q42_formats));
+  return row;
+}
+function exportContact(){
+  var su = arr(S.q65_suite), syn = su.indexOf("synthese") >= 0, ent = su.indexOf("entretien") >= 0, sui = su.indexOf("suivi_projet") >= 0, pil = su.indexOf("pilote") >= 0;
+  var ok = S.consentement_contact === "oui" ? "oui" : "";
+  if (!syn && !ent && !sui && !pil) return null;
+  return {id_reponse:META.id_reponse, date:new Date().toISOString(), langue:lang, email:S.contact_email || "",
+    telephone:(ent || pil) ? (S.contact_telephone || "") : "", synthese:syn ? "oui" : "non", entretien:ent ? "oui" : "non",
+    suivi_projet:sui ? "oui" : "non", pilote:pil ? "oui" : "non", consentement_pilote:pil ? ok : "",
+    consentement_synthese:syn ? ok : "", consentement_entretien:ent ? ok : "",
+    consentement_suites:sui ? ok : ""};
+}
+function allColumns(){
+  var c = ["id_reponse","debut","fin","duree_minutes","duree_active_minutes","complet","derniere_question_vue","canal","langue_lien","consentement_etude","q00_langue","q01_genre","q01_genre__autre"];
+  function each(prefix, list){ list.forEach(function(i){ c.push(prefix + "__" + i.c); }); }
+  each("q02_preoccupation", SUJETS); c.push("q03_entourage_general");
+  SUJETS.filter(function(s){ return PAR_SUJET[s.c]; }).forEach(function(s){ c.push("q04_accompagne__" + s.c, "q05_qui__" + s.c, "q05_qui__" + s.c + "__autre", "q06_pourquoi__" + s.c, "q06_pourquoi__" + s.c + "__autre", "q07_satisfaction__" + s.c); });
+  c.push("q08_apports","q08_apports__autre","q09_trouve","q09_trouve__autre","q10_budget_actuel","q11_financement","q12_bienetre_def","q13_longevite_def","q13_longevite_rien");
+  ["longevite_immortalite","longevite_stresse","longevite_inspire","longevite_prevention","longevite_plus_tard","longevite_medical","bienetre_inspire","bienetre_galvaude","longevite_vs_bienetre"].forEach(function(x){ c.push("q14_mots__" + x); });
+  c.push("q15_inspire","q16_maitrise","q17_facteurs","q17_facteurs__autre","q18_bienetre_global");
+  DOMAINES.forEach(function(d){ c.push("q19_domaine__" + d.c, "q19_action__" + d.c); });
+  c.push("q20_signaux","q20_signaux__autre");
+  c.push("q21_sources","q21_sources__autre","q22_sport_frequence","q23_sport_apports","q23_sport_apports__autre","q24_alimentation_attention","q25_alimentation_guide","q25_alimentation_guide__autre","q26_communaute","q27_communaute_quoi","q28_communaute_avis","q29_freins","q29_freins__autre","q30_frein_principal");
+  c.push("q31_utilises","q31_utilises__activite","q31_utilises__corps","q31_utilises__esprit","q31_autre","q32_envie_essayer","q32_envie_essayer__corps","q32_envie_essayer__esprit","q32_envie_essayer__activite__autre","q32_envie_essayer__corps__autre","q32_envie_essayer__esprit__autre");
+  ["bilan_plateforme","plateforme_habitudes","clinique_longevite","personne_prevention"].forEach(function(x){ c.push("q33_outils_actuels__" + x); });
+  c.push("q34_prevention_qui","q34_prevention_qui__autre","q35_interpretation","q35_interpretation__autre");
+  ["perf_depend","quand_ca_va_mal","nature_manque","sport_savoir"].forEach(function(x){ c.push("q36_affirmations__" + x); });
+  c.push("q37_interet_global","q38_plairait","q39_generait","q40_attentes","q40_attentes__autre","q41_premier_levier","q42_formats","q42_formats__bilan","q42_formats__bilan__autre","q42_formats__solutions","q42_formats__solutions__autre","q42_formats__suivi","q42_formats__suivi__autre","q43_journees__lieu","q43_journees__contenu","q43_journees__rythme","q44_retraite__lieu","q44_retraite__duree","q44_retraite__rythme","q45_sessions__moment","q45_sessions__contenu","q46_format_prefere","q47_facteur_humain","q48_modalites__rencontres","q48_modalites__rythme","q48_modalites__format","q49_budget_envisage","q50_lieu","q51_lieu_usages","q51_lieu_usages__autre","q52_intention","q53_parler");
+  c.push("q54_ia_confident","q55_espace_ecoute","q56_formulation","q56_formulation__autre","q57_situation","q57_situation__autre","q58_taille","q59_heures","q60_age","q61_famille","q62_nationalite","q62_nationalite__autre","q63_residence","q63_residence__autre","q64_commentaire","q65_suite");
+  return c;
+}
+var CONTACT_COLUMNS = ["id_reponse","date","langue","email","telephone","synthese","entretien","consentement_synthese","consentement_entretien","suivi_projet","consentement_suites","pilote","consentement_pilote"];
+
+function api(payload, cb){
+  var run = gasRun();
+  if (run) { run.withSuccessHandler(function(j){ if (cb) cb(null, j); }).withFailureHandler(function(e){ if (cb) cb(e); }).apiAppel(payload); return; }
+  if (!API_URL) { (window.__saved = window.__saved || []).push(JSON.parse(JSON.stringify(payload))); if (cb) setTimeout(function(){ cb(null, {ok:true}); }, 0); return; }
+  fetch(API_URL, {method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify(payload)})
+    .then(function(r){ return r.json(); })
+    .then(function(j){ if (cb) cb(null, j); })
+    .catch(function(e){ if (cb) cb(e); });
+}
+function snapshot(forServer){
+  var o = {S:S, ORDER:ORDER, CARD:CARD, hist:hist, cur:cur, META:META, lang:lang};
+  if (forServer) { o = JSON.parse(JSON.stringify(o)); delete o.S.reprise_email; delete o.S.reprise_consentement; }
+  return o;
+}
+function restore(o){
+  if (!o || !o.S) return false;
+  LAST_TICK = Date.now();
+  S = o.S; ORDER = o.ORDER || {}; CARD = o.CARD || {}; hist = o.hist || []; cur = o.cur || "q00"; META = o.META || META; lang = o.lang || S.q00_langue || "fr";
+  return true;
+}
+function keepLocal(){ try { if (done) localStorage.removeItem(STORE); else localStorage.setItem(STORE, JSON.stringify(snapshot(true))); } catch (e) {} }
+function save(final, ok, fail){
+  keepLocal();
+  var payload = {action:"enregistrer", columns:allColumns(), row:exportRow(final), contactColumns:CONTACT_COLUMNS, contact:final ? exportContact() : null};
+  api(payload, function(e, res){ if (!e && res && res.ok) { if (ok) ok(); } else if (fail) fail(); });
+}
+function submit(){
+  var btn = document.getElementById("nextBtn"); btn.disabled = true; btn.textContent = tx(UI.sending);
+  document.getElementById("err").textContent = "";
+  save(true, function(){ done = true; keepLocal(); render(); window.scrollTo(0, 0); }, function(){
+    btn.disabled = false; btn.textContent = tx(UI.submit); document.getElementById("err").textContent = tx(UI.sendErr);
+  });
+}
+
+/* ---------- fin et partage ---------- */
+function studyUrl(){ return (GAS ? GAS.url : location.origin + location.pathname) + "?canal=partage"; }
+function restartFresh(){
+  try { localStorage.removeItem(STORE); } catch (e) {}
+  S = {}; ORDER = {}; CARD = {}; hist = []; cur = "q00"; done = false; VIEW = null;
+  META = {id_reponse: uuid(), debut: new Date().toISOString(), canal: (PARAMS.canal || "").slice(0, 60), langue_lien: (PARAMS.langue || "").slice(0, 5)};
+  LAST_TICK = Date.now(); render(); window.scrollTo(0, 0);
+}
+function renderEnd(){
+  document.querySelector("#bar>div").style.width = "100%";
+  app.appendChild(el("h1", null, tx(L("Merci !","¡Gracias!","Thank you!"))));
+  app.appendChild(el("p", null, tx(L("Merci beaucoup pour ton temps et ta sincérité. Si tu as laissé ton e-mail, tu recevras la synthèse de l'étude dès qu'elle sera prête.",
+    "Muchas gracias por tu tiempo y tu sinceridad. Si has dejado tu correo, recibirás la síntesis del estudio en cuanto esté lista.",
+    "Thank you very much for your time and honesty. If you left your email, you'll receive the summary of the study as soon as it's ready."))));
+  var box = el("div", "share");
+  box.appendChild(el("h2", null, tx(L("Tu veux m'aider à aller plus loin ?","¿Quieres ayudarme a llegar más lejos?","Want to help me go further?"))));
+  box.appendChild(el("p", "sub", tx(L("Plus il y aura de réponses, plus l'étude sera utile. Tu peux la transmettre à ton réseau : le message ci-dessous est modifiable.","Cuantas más respuestas, más útil será el estudio. Puedes compartirlo con tu red: el mensaje de abajo se puede modificar.","The more answers, the more useful the study. You can pass it on to your network: the message below can be edited."))));
+  var ta = el("textarea"); ta.id = "shareText";
+  ta.value = tx(L("Je t'encourage à répondre à cette étude d'une amie, que je viens moi-même de faire, sur un sujet que tu trouveras sans aucun doute intéressant : comment vivre mieux, plus longtemps. Cela prend environ 20 minutes et c'est anonyme.",
+    "Te animo a responder a este estudio de una amiga, que yo mism{o|a} acabo de hacer, sobre un tema que sin duda te parecerá interesante: cómo vivir mejor durante más tiempo. Lleva unos 20 minutos y es anónimo.",
+    "I'd encourage you to answer this study by a friend of mine, which I've just completed myself, on a topic I'm sure you'll find interesting: how to live better, for longer. It takes about 20 minutes and it's anonymous.")) + "\n" + studyUrl();
+  box.appendChild(ta);
+  var btns = el("div", "sharebtns");
+  var wa = el("a", "wa", "WhatsApp"); wa.target = "_blank"; wa.rel = "noopener"; wa.dataset.act = "wa";
+  var ml = el("a", "mail", tx(L("E-mail","Correo","Email"))); ml.dataset.act = "mail"; ml.target = "_top";
+  function refresh(){
+    wa.href = "https://wa.me/?text=" + encodeURIComponent(ta.value);
+    ml.href = "mailto:?subject=" + encodeURIComponent(tx(L("Une étude qui devrait t'intéresser","Un estudio que te puede interesar","A study you might find interesting"))) + "&body=" + encodeURIComponent(ta.value);
+  }
+  ta.oninput = refresh; refresh();
+  var cp = el("button", "copy", tx(L("Copier","Copiar","Copy"))); cp.type = "button";
+  cp.onclick = function(){
+    var done2 = function(){ cp.textContent = tx(L("Copié !","¡Copiado!","Copied!")); };
+    if (navigator.clipboard) navigator.clipboard.writeText(ta.value).then(done2, function(){ ta.select(); document.execCommand("copy"); done2(); });
+    else { ta.select(); document.execCommand("copy"); done2(); }
+  };
+  btns.appendChild(wa); btns.appendChild(ml); btns.appendChild(cp);
+  box.appendChild(btns);
+  app.appendChild(box);
+}
+
+/* ---------- démarrage ---------- */
+(function init(){
+  var l = (PARAMS.langue || "").toLowerCase();
+  if (["fr","es","en"].indexOf(l) < 0) { l = (navigator.language || "").slice(0, 2).toLowerCase(); }
+  if (["fr","es","en"].indexOf(l) >= 0) { lang = l; S.q00_langue = l; }
+  if (PARAMS.reprise) {
+    VIEW = "chargement"; render();
+    var clean = function(){ if (GAS) return; try { history.replaceState(null, "", location.pathname + (PARAMS.canal ? "?canal=" + encodeURIComponent(PARAMS.canal) : "")); } catch (e) {} };
+    var fail = function(){ clean(); VIEW = "lien_invalide"; render(); };
+    var ok = function(j){ clean(); if (j && j.ok && restore(JSON.parse(j.etat))) { VIEW = null; keepLocal(); render(); } else fail(); };
+    var run = gasRun();
+    if (run) { run.withSuccessHandler(ok).withFailureHandler(fail).apiReprise(String(PARAMS.reprise)); return; }
+    if (!API_URL) return fail();
+    fetch(API_URL + "?action=reprise&token=" + encodeURIComponent(PARAMS.reprise))
+      .then(function(r){ return r.json(); })
+      .then(function(j){ clean(); if (j && j.ok && restore(JSON.parse(j.etat))) { VIEW = null; keepLocal(); render(); } else fail(); })
+      .catch(fail);
+    return;
+  }
+  try {
+    var saved = JSON.parse(localStorage.getItem(STORE) || "null");
+    if (saved && saved.cur && saved.cur !== "q00" && saved.cur !== "accueil" && restore(saved)) VIEW = "retour";
+  } catch (e) {}
+  render();
+})();
+</script>
+</body>
+</html>
